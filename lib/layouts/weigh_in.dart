@@ -1,7 +1,9 @@
+import 'package:body_track/widgets/button.dart';
 import 'package:flutter/material.dart';
 
 import '../services/database_service.dart';
 import '../utils/constants.dart';
+import '../widgets/input.dart';
 
 class WeighIn extends StatefulWidget {
   const WeighIn({Key? key}) : super(key: key);
@@ -12,6 +14,9 @@ class WeighIn extends StatefulWidget {
 
 class _WeighInState extends State<WeighIn> {
   final db = DatabaseService();
+  final _formKey = GlobalKey<FormState>();
+
+  submit() {}
 
   @override
   Widget build(BuildContext context) {
@@ -27,15 +32,43 @@ class _WeighInState extends State<WeighIn> {
         ),
       ),
       backgroundColor: Theme.of(context).primaryColor,
-      body: Center(
-        child: Padding(
-          padding: EdgeInsets.fromLTRB(25, 0, 25, 0),
-          child: SingleChildScrollView(
-            scrollDirection: Axis.vertical,
+      body: Padding(
+        padding: EdgeInsets.fromLTRB(25, 25, 25, 25),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Form(
+            key: _formKey,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[],
+              children: [
+                Input(
+                    label: 'Weight',
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter some text';
+                      }
+                      return null;
+                    },
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 16.0),
+                  child: Button(
+                    onPressed: () {
+                      // Validate returns true if the form is valid, or false otherwise.
+                      if (_formKey.currentState!.validate()) {
+                        // If the form is valid, display a snackbar. In the real world,
+                        // you'd often call a server or save the information in a database.
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Processing Data')),
+                        );
+                        navigatorKey.currentState!.pop();
+                      }
+                    },
+                    child: const Text('Submit'),
+                  ),
+                ),
+              ],
             ),
           ),
         ),
