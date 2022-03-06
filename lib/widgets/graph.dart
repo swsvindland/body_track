@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
 import 'package:provider/provider.dart';
-import 'package:body_track/models/drink.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:body_track/models/models.dart';
 import 'package:body_track/services/graph_animation_provider.dart';
@@ -62,66 +60,6 @@ class Graph extends StatelessWidget {
                     defaultRenderer:
                         new charts.ArcRendererConfig(arcWidth: 30)))
             : Container(),
-        Container(
-            height: 15, child: Text("Breakdown", textAlign: TextAlign.center)),
-        SizedBox(height: 15),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              width: 75,
-              height: MediaQuery.of(context).size.height * 0.2,
-              child: FAProgressBar(
-                verticalDirection: VerticalDirection.up,
-                direction: Axis.vertical,
-                maxValue: preferences.waterGoal,
-                currentValue: drinks.water,
-                displayText: preferences.unit == 'imperial' ? 'oz' : 'ml',
-                backgroundColor: Colors.grey[200] ?? Colors.white,
-                progressColor: Colors.blue[800] ?? Colors.blue,
-              ),
-            ),
-            SizedBox(width: 25),
-            Container(
-              width: 75,
-              height: MediaQuery.of(context).size.height * 0.2,
-              child: FAProgressBar(
-                verticalDirection: VerticalDirection.up,
-                direction: Axis.vertical,
-                maxValue: preferences.totalGoal,
-                currentValue: drinks.water +
-                    drinks.energyDrink +
-                    drinks.tea +
-                    drinks.coffee +
-                    drinks.sparklingWater +
-                    drinks.soda +
-                    drinks.sportsDrink +
-                    drinks.alcohol,
-                displayText: preferences.unit == 'imperial' ? 'oz' : 'ml',
-                backgroundColor: Colors.grey[200] ?? Colors.white,
-                progressColor: Colors.blueGrey,
-              ),
-            ),
-          ],
-        ),
-        SizedBox(height: 10),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-                width: 75,
-                height: 20,
-                child: Text("Water", textAlign: TextAlign.center)),
-            SizedBox(width: 25),
-            Container(
-                width: 75,
-                height: 20,
-                child: Text("Total", textAlign: TextAlign.center)),
-          ],
-        ),
-        SizedBox(height: 15)
       ],
     );
   }

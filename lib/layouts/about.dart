@@ -42,14 +42,14 @@ class AboutPage extends StatelessWidget {
                 style: TextStyle(color: Colors.white, fontSize: 12),
               ),
               SizedBox(
-                height: 15,
+                height: 45,
               ),
               Text(
-                'Icons made by',
+                'Version',
                 style: TextStyle(color: Colors.white, fontSize: 16),
               ),
               Text(
-                'Good Ware from flaticon.com',
+                '1.0.0',
                 style: TextStyle(color: Colors.white, fontSize: 12),
               ),
             ],

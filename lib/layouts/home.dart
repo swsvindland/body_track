@@ -1,18 +1,23 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:body_track/layouts/layouts.dart';
-import 'package:body_track/models/drink.dart';
 import 'package:body_track/models/models.dart';
 import 'package:body_track/services/database_service.dart';
 import 'package:body_track/services/sign_in.dart';
 import 'package:body_track/utils/constants.dart';
-import 'package:body_track/widgets/buttons/buttons.dart';
-import 'package:body_track/layouts/about.dart';
 import 'package:provider/provider.dart';
 import 'package:body_track/widgets/graph.dart';
 
 class HomePage extends StatelessWidget {
   final db = DatabaseService();
+
+  handleWeighIn() {
+
+  }
+
+  handleCheckIn() {
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -92,12 +97,32 @@ class HomePage extends StatelessWidget {
                     child: Graph(),
                   ),
                 ),
-                SizedBox(height: 25),
-                Expanded(flex: 3, child: Buttons()),
+                SizedBox(height: 300),
               ],
             ),
           ),
         ),
+        floatingActionButton:
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              FloatingActionButton(
+                onPressed: handleWeighIn,
+                foregroundColor: Colors.black,
+                backgroundColor: Colors.white,
+                child: const Icon(Icons.monitor_weight),
+              ),
+              SizedBox(width: 16),
+              FloatingActionButton.extended(
+                onPressed: handleCheckIn,
+                label: const Text('Check In'),
+                icon: const Icon(Icons.straighten),
+                foregroundColor: Colors.black,
+                backgroundColor: Colors.white,
+              ),
+            ],
+          )
       ),
     );
   }
