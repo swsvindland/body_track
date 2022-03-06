@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:body_track/layouts/layouts.dart';
 import 'package:body_track/models/models.dart';
 import 'package:body_track/services/database_service.dart';
 import 'package:body_track/services/sign_in.dart';
@@ -12,11 +11,11 @@ class HomePage extends StatelessWidget {
   final db = DatabaseService();
 
   handleWeighIn() {
-
+    navigatorKey.currentState!.pushNamed('/weigh-in');
   }
 
   handleCheckIn() {
-
+    navigatorKey.currentState!.pushNamed('/check-in');
   }
 
   @override
@@ -32,16 +31,10 @@ class HomePage extends StatelessWidget {
             PopupMenuButton<Popup>(
               onSelected: (Popup result) {
                 if (result == Popup.settings) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SettingsPage()),
-                  );
+                  navigatorKey.currentState!.pushNamed('/settings');
                 }
                 if (result == Popup.about) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => AboutPage()),
-                  );
+                  navigatorKey.currentState!.pushNamed('/about');
                 }
                 if (result == Popup.logOut) {
                   signOut();

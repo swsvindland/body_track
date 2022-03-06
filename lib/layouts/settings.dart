@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import 'package:body_track/models/models.dart';
 import 'package:body_track/services/database_service.dart';
 import 'package:body_track/utils/constants.dart';
-import 'package:body_track/widgets/goals.dart';
 import 'package:body_track/widgets/notifications.dart';
 import 'package:body_track/widgets/unit_switch.dart';
 
@@ -23,6 +22,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
     return Scaffold(
       appBar: AppBar(
+        title: Text('Settings'),
         elevation: 0,
         leading: new IconButton(
           icon: new Icon(Icons.arrow_back),
@@ -36,31 +36,18 @@ class _SettingsPageState extends State<SettingsPage> {
       body: StreamProvider<Preferences>.value(
         initialData: Preferences.empty(),
         value: db.streamPreferences(user!.uid),
-        child: Center(
-          child: Padding(
-            padding: EdgeInsets.fromLTRB(25, 0, 25, 0),
-            child: SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    'Settings',
-                    style: TextStyle(color: Colors.white, fontSize: 24),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  UnitSwitch(),
-                  SizedBox(height: 15),
-                  Goals(),
-                  Notifications()
-                ],
-              ),
+        child: Padding(
+          padding: EdgeInsets.fromLTRB(25, 25, 25, 25),
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                UnitSwitch(),
+                SizedBox(height: 15),
+                Notifications()
+              ],
             ),
           ),
         ),
