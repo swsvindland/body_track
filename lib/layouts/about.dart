@@ -7,6 +7,7 @@ class AboutPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
+        title: Text('About'),
         leading: new IconButton(
           icon: new Icon(Icons.arrow_back),
           color: Colors.white,
@@ -18,21 +19,11 @@ class AboutPage extends StatelessWidget {
       backgroundColor: Theme.of(context).primaryColor,
       body: Center(
         child: Padding(
-          padding: EdgeInsets.fromLTRB(25, 0, 25, 0),
+          padding: EdgeInsets.all(25),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              SizedBox(
-                height: 60,
-              ),
-              Text(
-                'About',
-                style: TextStyle(color: Colors.white, fontSize: 24),
-              ),
-              SizedBox(
-                height: 45,
-              ),
               Text(
                 'Designed and Built by',
                 style: TextStyle(color: Colors.white, fontSize: 16),

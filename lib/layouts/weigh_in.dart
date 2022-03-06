@@ -23,6 +23,7 @@ class _WeighInState extends State<WeighIn> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
+        title: Text("Weigh In"),
         leading: new IconButton(
           icon: new Icon(Icons.arrow_back),
           color: Colors.white,

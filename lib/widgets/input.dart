@@ -6,7 +6,8 @@ class Input extends StatelessWidget {
   final FormFieldValidator<String>? validator;
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
+    return Padding(padding: EdgeInsets.all(4),
+     child: TextFormField(
       // The validator receives the text that the user has entered.
       validator: validator,
       style: TextStyle(color: Colors.white),
@@ -24,6 +25,7 @@ class Input extends StatelessWidget {
           labelStyle: new TextStyle(color: Colors.white)
       ),
       keyboardType: TextInputType.number,
+    ),
     );
   }
 }
