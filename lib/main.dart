@@ -2,9 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:water_track/layouts/layouts.dart';
-import 'package:water_track/services/graph_animation_provider.dart';
-import 'package:water_track/utils/constants.dart';
+import 'package:body_track/layouts/layouts.dart';
+import 'package:body_track/services/graph_animation_provider.dart';
+import 'package:body_track/utils/constants.dart';
 
 import 'firebase_options.dart';
 
@@ -28,9 +28,9 @@ class App extends StatelessWidget {
             create: (_) => GraphAnimationProvider()),
       ],
       child: MaterialApp(
-        title: 'Water Track',
+        title: 'Body Track',
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(primarySwatch: Colors.lightBlue),
+        theme: ThemeData(primarySwatch: Colors.pink),
         navigatorKey: navigatorKey,
         initialRoute: '/',
         routes: {

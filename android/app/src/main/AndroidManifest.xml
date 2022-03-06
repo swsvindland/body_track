@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.svindland.watertrack">
+    package="com.svindland.bodytrack">
    <application
-        android:label="water_track"
+        android:label="body_track"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity

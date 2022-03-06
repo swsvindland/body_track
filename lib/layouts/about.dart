@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:water_track/utils/constants.dart';
+import 'package:body_track/utils/constants.dart';
 
 class AboutPage extends StatelessWidget {
   @override

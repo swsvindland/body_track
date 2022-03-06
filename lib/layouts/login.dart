@@ -2,12 +2,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_conditional_rendering/conditional.dart';
-import 'package:water_track/services/sign_in.dart';
-import 'package:water_track/utils/constants.dart';
+import 'package:body_track/services/sign_in.dart';
+import 'package:body_track/utils/constants.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import "package:os_detect/os_detect.dart" as Platform;
 
-import 'package:water_track/utils/helper.dart';
+import 'package:body_track/utils/helper.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage() : super();
@@ -39,7 +39,7 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Icon(Icons.local_drink, size: 96.0, color: Colors.white),
+              Icon(Icons.straighten, size: 96.0, color: Colors.white),
               SizedBox(height: 40),
               Conditional.single(
                 context: context,

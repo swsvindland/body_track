@@ -3,8 +3,8 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:water_track/utils/constants.dart';
-import 'package:water_track/utils/helper.dart';
+import 'package:body_track/utils/constants.dart';
+import 'package:body_track/utils/helper.dart';
 import "package:os_detect/os_detect.dart" as Platform;
 
 class SplashScreenPage extends StatefulWidget {
@@ -67,7 +67,7 @@ class _SplashState extends State<SplashScreenPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Icon(Icons.local_drink, size: 96.0, color: Colors.white),
+              Icon(Icons.straighten, size: 96.0, color: Colors.white),
               SizedBox(height: 75),
               CircularProgressIndicator(
                 backgroundColor: Colors.white,

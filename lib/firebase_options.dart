@@ -35,46 +35,42 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBhaVeHVSoQJkAWEo14dT_nITdQ2wOxG9g',
-    appId: '1:490539529973:web:3fb0d3b03cfe719043f7bc',
-    messagingSenderId: '490539529973',
-    projectId: 'watertrack-dded0',
-    authDomain: 'watertrack-dded0.firebaseapp.com',
-    databaseURL: 'https://watertrack-dded0.firebaseio.com',
-    storageBucket: 'watertrack-dded0.appspot.com',
-    measurementId: 'G-V2SYKW6P2Z',
+    apiKey: 'AIzaSyDoPzDTw1lTL56kQkw_WWWcy63vLRCy2X4',
+    appId: '1:718751552748:web:0253a98c7fa056c17c41c9',
+    messagingSenderId: '718751552748',
+    projectId: 'bodytrack-4805f',
+    authDomain: 'bodytrack-4805f.firebaseapp.com',
+    storageBucket: 'bodytrack-4805f.appspot.com',
+    measurementId: 'G-FLMZFXGDBQ',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDLvWJLgwHKHEfrap9_uhSEjKXNa1Ymvxg',
-    appId: '1:490539529973:android:b4079c2f0e0489fe43f7bc',
-    messagingSenderId: '490539529973',
-    projectId: 'watertrack-dded0',
-    databaseURL: 'https://watertrack-dded0.firebaseio.com',
-    storageBucket: 'watertrack-dded0.appspot.com',
+    apiKey: 'AIzaSyCKgASd8Y-hfbJpWxxvEtnqMQG8Bv8GEhs',
+    appId: '1:718751552748:android:0dc0fed7fe7eeef27c41c9',
+    messagingSenderId: '718751552748',
+    projectId: 'bodytrack-4805f',
+    storageBucket: 'bodytrack-4805f.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDiIRq47FT5U5dfEAPDsYOvOxlYDi9oERs',
-    appId: '1-490539529973-ios-013cad5b6755b6df43f7bc',
-    messagingSenderId: '490539529973',
-    projectId: 'watertrack-dded0',
-    databaseURL: 'https://watertrack-dded0.firebaseio.com',
-    storageBucket: 'watertrack-dded0.appspot.com',
-    androidClientId: '490539529973-8gba1idnn93rmn6slhn2f7acab88qq7b.apps.googleusercontent.com',
-    iosClientId: '490539529973-g0q6f3ht3lqdhkaro04t416gde25uvjt.apps.googleusercontent.com',
+    apiKey: 'AIzaSyDX8ZHKbTDNDSv8mD4SlwCWM05iDNKaPw8',
+    appId: '1:718751552748:ios:3f9722224b6f42877c41c9',
+    messagingSenderId: '718751552748',
+    projectId: 'bodytrack-4805f',
+    storageBucket: 'bodytrack-4805f.appspot.com',
+    androidClientId: '718751552748-h7vvl5ste38kvge940p3rvduhl23orld.apps.googleusercontent.com',
+    iosClientId: '718751552748-p16te2gb0phh8fl7jee7n2vdqj9b281o.apps.googleusercontent.com',
     iosBundleId: 'com.svindland.watertrack',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDiIRq47FT5U5dfEAPDsYOvOxlYDi9oERs',
-    appId: '1-490539529973-ios-013cad5b6755b6df43f7bc',
-    messagingSenderId: '490539529973',
-    projectId: 'watertrack-dded0',
-    databaseURL: 'https://watertrack-dded0.firebaseio.com',
-    storageBucket: 'watertrack-dded0.appspot.com',
-    androidClientId: '490539529973-8gba1idnn93rmn6slhn2f7acab88qq7b.apps.googleusercontent.com',
-    iosClientId: '490539529973-g0q6f3ht3lqdhkaro04t416gde25uvjt.apps.googleusercontent.com',
+    apiKey: 'AIzaSyDX8ZHKbTDNDSv8mD4SlwCWM05iDNKaPw8',
+    appId: '1:718751552748:ios:3f9722224b6f42877c41c9',
+    messagingSenderId: '718751552748',
+    projectId: 'bodytrack-4805f',
+    storageBucket: 'bodytrack-4805f.appspot.com',
+    androidClientId: '718751552748-h7vvl5ste38kvge940p3rvduhl23orld.apps.googleusercontent.com',
+    iosClientId: '718751552748-p16te2gb0phh8fl7jee7n2vdqj9b281o.apps.googleusercontent.com',
     iosBundleId: 'com.svindland.watertrack',
   );
 }

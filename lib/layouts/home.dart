@@ -1,15 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:water_track/layouts/layouts.dart';
-import 'package:water_track/models/drink.dart';
-import 'package:water_track/models/models.dart';
-import 'package:water_track/services/database_service.dart';
-import 'package:water_track/services/sign_in.dart';
-import 'package:water_track/utils/constants.dart';
-import 'package:water_track/widgets/buttons/buttons.dart';
-import 'package:water_track/layouts/about.dart';
+import 'package:body_track/layouts/layouts.dart';
+import 'package:body_track/models/drink.dart';
+import 'package:body_track/models/models.dart';
+import 'package:body_track/services/database_service.dart';
+import 'package:body_track/services/sign_in.dart';
+import 'package:body_track/utils/constants.dart';
+import 'package:body_track/widgets/buttons/buttons.dart';
+import 'package:body_track/layouts/about.dart';
 import 'package:provider/provider.dart';
-import 'package:water_track/widgets/graph.dart';
+import 'package:body_track/widgets/graph.dart';
 
 class HomePage extends StatelessWidget {
   final db = DatabaseService();

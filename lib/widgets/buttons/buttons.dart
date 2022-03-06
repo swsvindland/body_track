@@ -1,10 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:water_track/models/drink.dart';
-import 'package:water_track/models/models.dart';
-import 'package:water_track/services/database_service.dart';
-import 'package:water_track/services/graph_animation_provider.dart';
+import 'package:body_track/models/drink.dart';
+import 'package:body_track/models/models.dart';
+import 'package:body_track/services/database_service.dart';
+import 'package:body_track/services/graph_animation_provider.dart';
 import 'drink_button.dart';
 
 class Buttons extends StatelessWidget {
