@@ -24,79 +24,78 @@ class HomePage extends StatelessWidget {
 
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).primaryColor,
-          elevation: 0,
-          actions: <Widget>[
-            PopupMenuButton<Popup>(
-              onSelected: (Popup result) {
-                if (result == Popup.settings) {
-                  navigatorKey.currentState!.pushNamed('/settings');
-                }
-                if (result == Popup.about) {
-                  navigatorKey.currentState!.pushNamed('/about');
-                }
-                if (result == Popup.logOut) {
-                  signOut();
-                  navigatorKey.currentState!
-                      .pushNamedAndRemoveUntil('/login', (route) => false);
-                }
-              },
-              icon: Icon(Icons.more_vert),
-              itemBuilder: (BuildContext context) => <PopupMenuEntry<Popup>>[
-                const PopupMenuItem<Popup>(
-                  value: Popup.settings,
-                  child: ListTile(
-                    leading: Icon(Icons.settings),
-                    title: Text('Settings'),
-                  ),
-                ),
-                const PopupMenuItem<Popup>(
-                  value: Popup.about,
-                  child: ListTile(
-                    leading: Icon(Icons.info),
-                    title: Text('About'),
-                  ),
-                ),
-                const PopupMenuItem<Popup>(
-                  value: Popup.logOut,
-                  child: ListTile(
-                    leading: Icon(Icons.exit_to_app),
-                    title: Text('Log Out'),
-                  ),
-                ),
-              ].toList(),
-            ),
-          ],
-        ),
-        backgroundColor: Theme.of(context).primaryColor,
-        body: StreamProvider<Drinks>.value(
-          initialData: Drinks.empty(),
-          value: db.streamDrinks(user!.uid),
-          child: StreamProvider<Preferences>.value(
-            initialData: Preferences.empty(),
-            value: db.streamPreferences(user.uid),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Expanded(
-                  flex: 5,
-                  child: Card(
-                    elevation: 5,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25),
+          appBar: AppBar(
+            backgroundColor: Theme.of(context).primaryColor,
+            elevation: 0,
+            actions: <Widget>[
+              PopupMenuButton<Popup>(
+                onSelected: (Popup result) {
+                  if (result == Popup.settings) {
+                    navigatorKey.currentState!.pushNamed('/settings');
+                  }
+                  if (result == Popup.about) {
+                    navigatorKey.currentState!.pushNamed('/about');
+                  }
+                  if (result == Popup.logOut) {
+                    signOut();
+                    navigatorKey.currentState!
+                        .pushNamedAndRemoveUntil('/login', (route) => false);
+                  }
+                },
+                icon: Icon(Icons.more_vert),
+                itemBuilder: (BuildContext context) => <PopupMenuEntry<Popup>>[
+                  const PopupMenuItem<Popup>(
+                    value: Popup.settings,
+                    child: ListTile(
+                      leading: Icon(Icons.settings),
+                      title: Text('Settings'),
                     ),
-                    child: Graph(),
                   ),
-                ),
-                SizedBox(height: 300),
-              ],
+                  const PopupMenuItem<Popup>(
+                    value: Popup.about,
+                    child: ListTile(
+                      leading: Icon(Icons.info),
+                      title: Text('About'),
+                    ),
+                  ),
+                  const PopupMenuItem<Popup>(
+                    value: Popup.logOut,
+                    child: ListTile(
+                      leading: Icon(Icons.exit_to_app),
+                      title: Text('Log Out'),
+                    ),
+                  ),
+                ].toList(),
+              ),
+            ],
+          ),
+          backgroundColor: Theme.of(context).primaryColor,
+          body: StreamProvider<Iterable<String>>.value(
+            initialData: [],
+            value: db.streamWeighIns(user!.uid),
+            child: StreamProvider<Preferences>.value(
+              initialData: Preferences.empty(),
+              value: db.streamPreferences(user.uid),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Expanded(
+                    flex: 5,
+                    child: Card(
+                      elevation: 5,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      child: Graph(),
+                    ),
+                  ),
+                  SizedBox(height: 300),
+                ],
+              ),
             ),
           ),
-        ),
-        floatingActionButton:
-          Row(
+          floatingActionButton: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -115,8 +114,7 @@ class HomePage extends StatelessWidget {
                 backgroundColor: Colors.white,
               ),
             ],
-          )
-      ),
+          )),
     );
   }
 }

@@ -1,5 +1,7 @@
 import 'package:body_track/widgets/button.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../services/database_service.dart';
 import '../utils/constants.dart';
@@ -15,11 +17,25 @@ class WeighIn extends StatefulWidget {
 class _WeighInState extends State<WeighIn> {
   final db = DatabaseService();
   final _formKey = GlobalKey<FormState>();
+  final weightController = TextEditingController();
 
-  submit() {}
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    weightController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
+    var user = Provider.of<User?>(context);
+
+    submit() async {
+      if (user == null) return;
+
+      await db.addWeighIn(user.uid, weightController.text);
+    }
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -45,6 +61,7 @@ class _WeighInState extends State<WeighIn> {
               children: [
                 Input(
                     label: 'Weight',
+                    controller: weightController,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter some text';
@@ -55,7 +72,7 @@ class _WeighInState extends State<WeighIn> {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 16.0),
                   child: Button(
-                    onPressed: () {
+                    onPressed: () async {
                       // Validate returns true if the form is valid, or false otherwise.
                       if (_formKey.currentState!.validate()) {
                         // If the form is valid, display a snackbar. In the real world,
@@ -63,6 +80,7 @@ class _WeighInState extends State<WeighIn> {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(content: Text('Processing Data')),
                         );
+                        await submit();
                         navigatorKey.currentState!.pop();
                       }
                     },
