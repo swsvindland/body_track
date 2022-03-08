@@ -40,7 +40,38 @@ class DatabaseService {
       "date": new DateTime.now(),
       "weight": weight
     });
+  }
 
+  Future<void> addCheckIn(
+      String id,
+      double neck,
+      double shoulders,
+      double chest,
+      double leftBicep,
+      double rightBicep,
+      double navel,
+      double waist,
+      double leftThigh,
+      double rightThigh,
+      double leftCalf,
+      double rightCalf
+      ) {
+    return _db
+        .collection('checkIns').doc().set({
+      "uid": id,
+      "date": new DateTime.now(),
+      "neck": neck,
+      "shoulders": shoulders,
+      "chest": chest,
+      "leftBicep": leftBicep,
+      "rightBicep": rightBicep,
+      "navel": navel,
+      "waist": waist,
+      "leftThigh": leftThigh,
+      "rightThigh": rightThigh,
+      "leftCalf": leftCalf,
+      "rightCalf": rightCalf
+    });
   }
 
   Stream<Preferences> streamPreferences(String id) {

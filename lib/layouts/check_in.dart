@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../services/database_service.dart';
 import '../utils/constants.dart';
@@ -15,11 +17,61 @@ class CheckIn extends StatefulWidget {
 class _CheckInState extends State<CheckIn> {
   final db = DatabaseService();
   final _formKey = GlobalKey<FormState>();
+  final neckController = TextEditingController();
+  final shouldersController = TextEditingController();
+  final chestController = TextEditingController();
+  final leftBicepController = TextEditingController();
+  final rightBicepController = TextEditingController();
+  final navelController = TextEditingController();
+  final waistController = TextEditingController();
+  final leftThighController = TextEditingController();
+  final rightThighController = TextEditingController();
+  final leftCalfController = TextEditingController();
+  final rightCalfController = TextEditingController();
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    neckController.dispose();
+    shouldersController.dispose();
+    chestController.dispose();
+    leftBicepController.dispose();
+    rightBicepController.dispose();
+    navelController.dispose();
+    waistController.dispose();
+    leftThighController.dispose();
+    rightThighController.dispose();
+    leftCalfController.dispose();
+    rightCalfController.dispose();
+
+    super.dispose();
+  }
 
   submit() {}
 
   @override
   Widget build(BuildContext context) {
+    var user = Provider.of<User?>(context);
+
+    submit() async {
+      if (user == null) return;
+
+      await db.addCheckIn(
+        user.uid,
+        double.parse(neckController.text),
+        double.parse(shouldersController.text),
+        double.parse(chestController.text),
+        double.parse(leftBicepController.text),
+        double.parse(rightBicepController.text),
+        double.parse(navelController.text),
+        double.parse(waistController.text),
+        double.parse(leftThighController.text),
+        double.parse(rightThighController.text),
+        double.parse(leftCalfController.text),
+        double.parse(rightCalfController.text),
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -45,6 +97,7 @@ class _CheckInState extends State<CheckIn> {
               children: [
                 Input(
                   label: 'Neck',
+                  controller: neckController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter some text';
@@ -54,6 +107,7 @@ class _CheckInState extends State<CheckIn> {
                 ),
                 Input(
                   label: 'Shoulders',
+                  controller: shouldersController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter some text';
@@ -63,6 +117,7 @@ class _CheckInState extends State<CheckIn> {
                 ),
                 Input(
                   label: 'Chest',
+                  controller: chestController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter some text';
@@ -78,6 +133,7 @@ class _CheckInState extends State<CheckIn> {
                       width: 150,
                       child: Input(
                         label: 'Left Bicep',
+                        controller: leftBicepController,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter some text';
@@ -89,7 +145,8 @@ class _CheckInState extends State<CheckIn> {
                     SizedBox(
                       width: 150,
                       child: Input(
-                        label: 'Right Becep',
+                        label: 'Right Bicep',
+                        controller: rightBicepController,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter some text';
@@ -102,6 +159,7 @@ class _CheckInState extends State<CheckIn> {
                 ),
                 Input(
                   label: 'Navel',
+                  controller: navelController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter some text';
@@ -111,6 +169,7 @@ class _CheckInState extends State<CheckIn> {
                 ),
                 Input(
                   label: 'Waist',
+                  controller: waistController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter some text';
@@ -126,6 +185,7 @@ class _CheckInState extends State<CheckIn> {
                       width: 150,
                       child: Input(
                         label: 'Left Thigh',
+                        controller: leftThighController,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter some text';
@@ -138,6 +198,7 @@ class _CheckInState extends State<CheckIn> {
                       width: 150,
                       child: Input(
                         label: 'Right Thigh',
+                        controller: rightThighController,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter some text';
@@ -156,6 +217,7 @@ class _CheckInState extends State<CheckIn> {
                       width: 150,
                       child: Input(
                         label: 'Left Calf',
+                        controller: leftCalfController,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter some text';
@@ -168,6 +230,7 @@ class _CheckInState extends State<CheckIn> {
                       width: 150,
                       child: Input(
                         label: 'Right Calf',
+                        controller: rightCalfController,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Please enter some text';
@@ -181,7 +244,7 @@ class _CheckInState extends State<CheckIn> {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 16.0),
                   child: Button(
-                    onPressed: () {
+                    onPressed: () async {
                       // Validate returns true if the form is valid, or false otherwise.
                       if (_formKey.currentState!.validate()) {
                         // If the form is valid, display a snackbar. In the real world,
@@ -189,6 +252,7 @@ class _CheckInState extends State<CheckIn> {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(content: Text('Processing Data')),
                         );
+                        await submit();
                         navigatorKey.currentState!.pop();
                       }
                     },
