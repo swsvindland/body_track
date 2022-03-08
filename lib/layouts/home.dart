@@ -25,6 +25,7 @@ class HomePage extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(
+            title: Text('BodyTrack'),
             backgroundColor: Theme.of(context).primaryColor,
             elevation: 0,
             actions: <Widget>[
