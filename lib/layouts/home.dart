@@ -5,7 +5,7 @@ import 'package:body_track/services/database_service.dart';
 import 'package:body_track/services/sign_in.dart';
 import 'package:body_track/utils/constants.dart';
 import 'package:provider/provider.dart';
-import 'package:body_track/widgets/graph.dart';
+import 'package:body_track/widgets/weights.dart';
 
 class HomePage extends StatelessWidget {
   final db = DatabaseService();
@@ -70,7 +70,7 @@ class HomePage extends StatelessWidget {
             ],
           ),
           backgroundColor: Theme.of(context).primaryColor,
-          body: StreamProvider<Iterable<String>>.value(
+          body: StreamProvider<Iterable<Weight>>.value(
             initialData: [],
             value: db.streamWeighIns(user!.uid),
             child: StreamProvider<Preferences>.value(
@@ -81,16 +81,19 @@ class HomePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Expanded(
-                    flex: 5,
+                    flex: 3,
                     child: Card(
                       elevation: 5,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(25),
                       ),
-                      child: Graph(),
+                      child: Weights(),
                     ),
                   ),
-                  SizedBox(height: 300),
+                  Expanded(
+                    flex: 5,
+                    child: SizedBox(),
+                  ),
                 ],
               ),
             ),

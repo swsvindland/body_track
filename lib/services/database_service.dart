@@ -25,15 +25,15 @@ class DatabaseService {
         .set(Drinks.toMap(drinks));
   }
 
-  Stream<Iterable<String>> streamWeighIns(String id) {
+  Stream<Iterable<Weight>> streamWeighIns(String id) {
     return _db
         .collection('weight')
         .where("uid", isEqualTo: id)
         .snapshots()
-        .map((event) => event.docs.map((e) => e.get('weight')));
+        .map((event) => event.docs.map((e) => Weight.fromMap(e.data())));
   }
 
-  Future<void> addWeighIn(String id, String weight) {
+  Future<void> addWeighIn(String id, double weight) {
     return _db
         .collection('weight').doc().set({
       "uid": id,

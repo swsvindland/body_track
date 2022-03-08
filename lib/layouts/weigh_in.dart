@@ -33,7 +33,7 @@ class _WeighInState extends State<WeighIn> {
     submit() async {
       if (user == null) return;
 
-      await db.addWeighIn(user.uid, weightController.text);
+      await db.addWeighIn(user.uid, double.parse(weightController.text));
     }
 
     return Scaffold(
