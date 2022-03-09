@@ -26,6 +26,7 @@ class HomePage extends StatelessWidget {
     var user = Provider.of<User?>(context);
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           title: Text('BodyTrack'),
@@ -86,12 +87,18 @@ class HomePage extends StatelessWidget {
               children: <Widget>[
                 Expanded(
                   flex: 3,
-                  child: Card(
-                    elevation: 5,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25),
+                  child: Padding(
+                    padding: EdgeInsets.all(8),
+                    child: Card(
+                      elevation: 5,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.all(4),
+                        child: Weights(),
+                      ),
                     ),
-                    child: Weights(),
                   ),
                 ),
                 Expanded(
