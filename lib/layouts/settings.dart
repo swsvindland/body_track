@@ -5,7 +5,6 @@ import 'package:body_track/models/models.dart';
 import 'package:body_track/services/database_service.dart';
 import 'package:body_track/utils/constants.dart';
 import 'package:body_track/widgets/notifications.dart';
-import 'package:body_track/widgets/unit_switch.dart';
 
 class SettingsPage extends StatefulWidget {
   SettingsPage() : super();
@@ -44,8 +43,6 @@ class _SettingsPageState extends State<SettingsPage> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                UnitSwitch(),
-                SizedBox(height: 15),
                 Notifications()
               ],
             ),

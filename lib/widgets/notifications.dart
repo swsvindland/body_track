@@ -1,3 +1,4 @@
+import 'package:body_track/widgets/button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -18,7 +19,6 @@ class _NotificationsState extends State<Notifications> {
 
   void update(User? user, Preferences preferences) {
     preferences.setStartTime(start);
-    preferences.setEndTime(end);
     set = false;
 
     db.updatePreferences(user!.uid, preferences);
@@ -32,7 +32,6 @@ class _NotificationsState extends State<Notifications> {
     setState(() {
       if (!set) {
         start = preferences.start;
-        end = preferences.end;
       }
     });
 
@@ -46,18 +45,13 @@ class _NotificationsState extends State<Notifications> {
         child: Column(
           children: [
             Text('Reminder Notification'),
-            SizedBox(height: 20),
+            SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Column(
                   children: [
-                    Text(
-                      "Start",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 24),
-                    ),
                     OutlinedButton(
                       onPressed: () async {
                         TimeOfDay? picked = await showTimePicker(
@@ -81,57 +75,18 @@ class _NotificationsState extends State<Notifications> {
                     ),
                   ],
                 ),
-                SizedBox(width: 20),
-                Column(
-                  children: [
-                    Text(
-                      "End",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 24),
-                    ),
-                    OutlinedButton(
-                      onPressed: () async {
-                        TimeOfDay? picked = await showTimePicker(
-                          context: context,
-                          initialTime: TimeOfDay(hour: 12, minute: 00),
-                          builder: (BuildContext context, Widget? child) {
-                            return MediaQuery(
-                              data: MediaQuery.of(context)
-                                  .copyWith(alwaysUse24HourFormat: true),
-                              child: child ?? new Text('error'),
-                            );
-                          },
-                        );
-
-                        setState(() {
-                          end = picked!.hour;
-                          set = true;
-                        });
-                      },
-                      child: Text('$end:00'),
-                    )
-                  ],
-                )
               ],
             ),
-            SizedBox(height: 20),
-            MaterialButton(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(25.0)),
-              minWidth: 125.0,
-              height: 35,
-              color: Colors.blue,
-              child: new Text(
-                'Update',
-                style: new TextStyle(
-                  fontSize: 16.0,
-                  color: Colors.white,
-                ),
-              ),
+            SizedBox(height: 16),
+            Button(
               onPressed: () {
                 update(user, preferences);
               },
-            ),
+              child: new Text(
+                'Update',
+              ),
+              variant: 'secondary',
+            )
           ],
         ),
       ),
