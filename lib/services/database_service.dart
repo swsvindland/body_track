@@ -2,28 +2,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:body_track/models/models.dart';
 import 'dart:async';
 
+import '../models/checkin.dart';
+
 class DatabaseService {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
   var date = DateTime.now();
-
-  Stream<Drinks> streamDrinks(String id) {
-    return _db
-        .collection('drinks')
-        .doc(id)
-        .collection('days')
-        .doc('${date.year}${date.month}${date.day}')
-        .snapshots()
-        .map((snap) => Drinks.fromMap(snap.data()!));
-  }
-
-  Future<void> updateDrinks(String id, Drinks drinks) {
-    return _db
-        .collection('drinks')
-        .doc(id)
-        .collection('days')
-        .doc('${date.year}${date.month}${date.day}')
-        .set(Drinks.toMap(drinks));
-  }
 
   Stream<Iterable<Weight>> streamWeighIns(String id) {
     return _db
@@ -72,6 +55,14 @@ class DatabaseService {
       "leftCalf": leftCalf,
       "rightCalf": rightCalf
     });
+  }
+
+  Stream<Iterable<CheckIn>> streamCheckIns(String id) {
+    return _db
+        .collection('checkIns')
+        .where("uid", isEqualTo: id)
+        .snapshots()
+        .map((event) => event.docs.map((e) => CheckIn.fromMap(e.data())));
   }
 
   Stream<Preferences> streamPreferences(String id) {

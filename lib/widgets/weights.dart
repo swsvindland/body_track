@@ -7,7 +7,7 @@ import '../models/weight.dart';
 class Weights extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var weights = Provider.of<Iterable<Weight>>(context);
+    var weights = Provider.of<Iterable<Weight>>(context).toList();
 
     var now = DateTime.now();
 
@@ -20,7 +20,7 @@ class Weights extends StatelessWidget {
   }
 
   /// Create one series with sample hard coded data.
-  static List<Series<TimeSeriesWeight, DateTime>> _createSampleData(Iterable<Weight> weights) {
+  static List<Series<TimeSeriesWeight, DateTime>> _createSampleData(List<Weight> weights) {
 
     final data = weights.map((e) => new TimeSeriesWeight(e.date, e.weight));
 
