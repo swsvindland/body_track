@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "water_track" "\0"
+            VALUE "CompanyName", "com.svindland" "\0"
+            VALUE "FileDescription", "body_track" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "water_track" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2022 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "water_track.exe" "\0"
-            VALUE "ProductName", "water_track" "\0"
+            VALUE "InternalName", "body_track" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2022 com.svindland. All rights reserved." "\0"
+            VALUE "OriginalFilename", "body_track.exe" "\0"
+            VALUE "ProductName", "body_track" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

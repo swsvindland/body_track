@@ -26,7 +26,7 @@ class Weights extends StatelessWidget {
 
     return [
       new Series<TimeSeriesWeight, DateTime>(
-        id: 'Weights',
+        id: UniqueKey().toString(),
         domainFn: (TimeSeriesWeight sales, _) => sales.time,
         measureFn: (TimeSeriesWeight sales, _) => sales.weight,
         data: data.toList(),

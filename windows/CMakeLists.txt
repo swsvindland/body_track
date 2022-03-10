@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
-project(water_track LANGUAGES CXX)
+project(body_track LANGUAGES CXX)
 
-set(BINARY_NAME "water_track")
+set(BINARY_NAME "body_track")
 
 cmake_policy(SET CMP0063 NEW)
 

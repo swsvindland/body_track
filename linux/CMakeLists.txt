@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.10)
 project(runner LANGUAGES CXX)
 
-set(BINARY_NAME "water_track")
-set(APPLICATION_ID "com.example.water_track")
+set(BINARY_NAME "body_track")
+set(APPLICATION_ID "com.svindland.body_track")
 
 cmake_policy(SET CMP0063 NEW)
 

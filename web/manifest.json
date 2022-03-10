@@ -1,6 +1,6 @@
 {
-    "name": "water_track",
-    "short_name": "water_track",
+    "name": "body_track",
+    "short_name": "body_track",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
