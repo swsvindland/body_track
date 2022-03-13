@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 
 import '../services/database_service.dart';
 import '../utils/constants.dart';
+import '../utils/helper.dart';
 import '../widgets/input.dart';
 
 class WeighIn extends StatefulWidget {
@@ -62,13 +63,7 @@ class _WeighInState extends State<WeighIn> {
                 Input(
                     label: 'Weight',
                     controller: weightController,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter some text';
-                      }
-                      return null;
-                    },
-                ),
+                    validator: checkInValidator),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 16.0),
                   child: Button(

@@ -26,14 +26,8 @@ void createDefaultPreferences(FirebaseFirestore db, User user) async {
 
   if (!snapshot.exists) {
     snapshot.reference.set({
-      'unit': 'imperial',
-      'waterGoal': 96,
-      'totalGoal': 128,
-      'drinkSize': 8,
       'start':
           DateTime.parse('2000-01-01 ${7.toString().padLeft(2, '0')}:00:00'),
-      'end':
-          DateTime.parse('2000-01-01 ${20.toString().padLeft(2, '0')}:00:00'),
     });
   }
 }
@@ -47,4 +41,19 @@ void updateUserData(FirebaseFirestore db, User user) async {
     'displayName': user.displayName,
     'lastSeen': DateTime.now()
   });
+}
+
+bool isNumeric(String? num) {
+  if (num == null) {
+    return false;
+  }
+
+  return double.tryParse(num) != null;
+}
+
+String? checkInValidator(String? value) {
+    if (value == null || value.isEmpty || isNumeric(value)) {
+      return 'Please enter your measurement';
+    }
+    return null;
 }

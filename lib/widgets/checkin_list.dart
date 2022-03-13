@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../models/checkin.dart';
+import '../models/models.dart';
 import 'checkin_card.dart';
 
 class CheckInList extends StatelessWidget {

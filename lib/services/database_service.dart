@@ -2,8 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:body_track/models/models.dart';
 import 'dart:async';
 
-import '../models/checkin.dart';
-
 class DatabaseService {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
   var date = DateTime.now();

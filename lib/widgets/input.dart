@@ -27,7 +27,7 @@ class Input extends StatelessWidget {
           labelText: label,
           labelStyle: new TextStyle(color: Colors.white)
       ),
-      keyboardType: TextInputType.number,
+      keyboardType: TextInputType.numberWithOptions(decimal: true),
     ),
     );
   }

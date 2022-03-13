@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../services/database_service.dart';
 import '../utils/constants.dart';
+import '../utils/helper.dart';
 import '../widgets/button.dart';
 import '../widgets/input.dart';
 
@@ -96,35 +97,17 @@ class _CheckInState extends State<CheckIn> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Input(
-                  label: 'Neck',
-                  controller: neckController,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter some text';
-                    }
-                    return null;
-                  },
-                ),
+                    label: 'Neck',
+                    controller: neckController,
+                    validator: checkInValidator),
                 Input(
-                  label: 'Shoulders',
-                  controller: shouldersController,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter some text';
-                    }
-                    return null;
-                  },
-                ),
+                    label: 'Shoulders',
+                    controller: shouldersController,
+                    validator: checkInValidator),
                 Input(
-                  label: 'Chest',
-                  controller: chestController,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter some text';
-                    }
-                    return null;
-                  },
-                ),
+                    label: 'Chest',
+                    controller: chestController,
+                    validator: checkInValidator),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -132,51 +115,27 @@ class _CheckInState extends State<CheckIn> {
                     SizedBox(
                       width: 150,
                       child: Input(
-                        label: 'Left Bicep',
-                        controller: leftBicepController,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter some text';
-                          }
-                          return null;
-                        },
-                      ),
+                          label: 'Left Bicep',
+                          controller: leftBicepController,
+                          validator: checkInValidator),
                     ),
                     SizedBox(
                       width: 150,
                       child: Input(
-                        label: 'Right Bicep',
-                        controller: rightBicepController,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter some text';
-                          }
-                          return null;
-                        },
-                      ),
+                          label: 'Right Bicep',
+                          controller: rightBicepController,
+                          validator: checkInValidator),
                     ),
                   ],
                 ),
                 Input(
-                  label: 'Navel',
-                  controller: navelController,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter some text';
-                    }
-                    return null;
-                  },
-                ),
+                    label: 'Navel',
+                    controller: navelController,
+                    validator: checkInValidator),
                 Input(
-                  label: 'Waist',
-                  controller: waistController,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter some text';
-                    }
-                    return null;
-                  },
-                ),
+                    label: 'Waist',
+                    controller: waistController,
+                    validator: checkInValidator),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -184,28 +143,16 @@ class _CheckInState extends State<CheckIn> {
                     SizedBox(
                       width: 150,
                       child: Input(
-                        label: 'Left Thigh',
-                        controller: leftThighController,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter some text';
-                          }
-                          return null;
-                        },
-                      ),
+                          label: 'Left Thigh',
+                          controller: leftThighController,
+                          validator: checkInValidator),
                     ),
                     SizedBox(
                       width: 150,
                       child: Input(
-                        label: 'Right Thigh',
-                        controller: rightThighController,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter some text';
-                          }
-                          return null;
-                        },
-                      ),
+                          label: 'Right Thigh',
+                          controller: rightThighController,
+                          validator: checkInValidator),
                     ),
                   ],
                 ),
@@ -216,28 +163,16 @@ class _CheckInState extends State<CheckIn> {
                     SizedBox(
                       width: 150,
                       child: Input(
-                        label: 'Left Calf',
-                        controller: leftCalfController,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter some text';
-                          }
-                          return null;
-                        },
-                      ),
+                          label: 'Left Calf',
+                          controller: leftCalfController,
+                          validator: checkInValidator),
                     ),
                     SizedBox(
                       width: 150,
                       child: Input(
-                        label: 'Right Calf',
-                        controller: rightCalfController,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter some text';
-                          }
-                          return null;
-                        },
-                      ),
+                          label: 'Right Calf',
+                          controller: rightCalfController,
+                          validator: checkInValidator),
                     ),
                   ],
                 ),
