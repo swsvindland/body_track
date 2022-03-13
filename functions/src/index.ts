@@ -58,7 +58,9 @@ const sendNotifications = async () => {
                 const start = (new Date(pref.start));
                 let payload: admin.messaging.MessagingPayload | undefined = undefined;
 
-                if (start.getHours() === current.hour() && moment().isoWeekday() === 7) {
+                console.log(start, current, current.isoWeekday());
+
+                if (start.getHours() === current.hour() && current.isoWeekday() === 7) {
                     payload = {
                         notification: {
                             title: 'Good Morning!',
