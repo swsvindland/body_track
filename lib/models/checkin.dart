@@ -11,6 +11,8 @@ class CheckIn {
   double rightThigh;
   double leftCalf;
   double rightCalf;
+  double? systolic;
+  double? diastolic;
 
   CheckIn(
       {required this.date,
@@ -24,7 +26,9 @@ class CheckIn {
       required this.leftThigh,
       required this.rightThigh,
       required this.leftCalf,
-      required this.rightCalf});
+      required this.rightCalf,
+      this.systolic,
+      this.diastolic});
 
   factory CheckIn.fromMap(Map data) {
     data = data;
@@ -41,6 +45,8 @@ class CheckIn {
       rightThigh: data['rightThigh'],
       leftCalf: data['leftCalf'],
       rightCalf: data['rightCalf'],
+      systolic: data['systolic'],
+      diastolic: data['diastolic'],
     );
   }
 
@@ -59,6 +65,8 @@ class CheckIn {
       'rightThigh': data.rightThigh,
       'leftCalf': data.leftCalf,
       'rightCalf': data.rightCalf,
+      'systolic': data.systolic,
+      'diastolic': data.diastolic
     };
   }
 }

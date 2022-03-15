@@ -52,8 +52,8 @@ bool isNumeric(String? num) {
 }
 
 String? checkInValidator(String? value) {
-    if (value == null || value.isEmpty || isNumeric(value)) {
-      return 'Please enter your measurement';
+    if (value == null || value.isEmpty || !isNumeric(value)) {
+      return 'Please enter a measurement';
     }
     return null;
 }

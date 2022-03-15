@@ -35,7 +35,9 @@ class DatabaseService {
       double leftThigh,
       double rightThigh,
       double leftCalf,
-      double rightCalf
+      double rightCalf,
+      [double? systolic,
+      double? diastolic]
       ) {
     return _db
         .collection('checkIns').doc().set({
@@ -51,7 +53,9 @@ class DatabaseService {
       "leftThigh": leftThigh,
       "rightThigh": rightThigh,
       "leftCalf": leftCalf,
-      "rightCalf": rightCalf
+      "rightCalf": rightCalf,
+      "systolic": systolic,
+      "diastolic": diastolic
     });
   }
 
@@ -59,6 +63,7 @@ class DatabaseService {
     return _db
         .collection('checkIns')
         .where("uid", isEqualTo: id)
+        .orderBy("date", descending: true)
         .snapshots()
         .map((event) => event.docs.map((e) => CheckIn.fromMap(e.data())));
   }

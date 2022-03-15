@@ -39,6 +39,8 @@ class CheckInCard extends StatelessWidget {
                 Text('Right Thigh: ${data.rightThigh}\t\t\t'),
                 Text('Left Calf: ${data.leftCalf}\t\t\t'),
                 Text('Right Calf: ${data.rightCalf}\t\t\t'),
+                data.systolic != null ? Text('Systolic: ${data.systolic}\t\t\t') : SizedBox(width: 0),
+                data.diastolic != null ? Text('Diastolic: ${data.diastolic}\t\t\t') : SizedBox(width: 0),
               ],
             ),
           ],
