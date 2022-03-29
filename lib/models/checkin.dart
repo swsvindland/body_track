@@ -7,7 +7,7 @@ class CheckIn {
   double rightBicep;
   double navel;
   double waist;
-  double hip;
+  double? hip;
   double leftThigh;
   double rightThigh;
   double leftCalf;
@@ -24,7 +24,7 @@ class CheckIn {
       required this.rightBicep,
       required this.navel,
       required this.waist,
-        required this.hip,
+      this.hip,
       required this.leftThigh,
       required this.rightThigh,
       required this.leftCalf,

@@ -82,22 +82,21 @@ class _BodyMeasurementFormState extends State<BodyMeasurementForm> {
       if (user == null) return;
 
       await db.addCheckIn(
-        user.uid,
-        double.parse(neckController.text),
-        double.parse(shouldersController.text),
-        double.parse(chestController.text),
-        double.parse(leftBicepController.text),
-        double.parse(rightBicepController.text),
-        double.parse(navelController.text),
-        double.parse(waistController.text),
+          user.uid,
+          double.parse(neckController.text),
+          double.parse(shouldersController.text),
+          double.parse(chestController.text),
+          double.parse(leftBicepController.text),
+          double.parse(rightBicepController.text),
+          double.parse(navelController.text),
+          double.parse(waistController.text),
           double.parse(hipController.text),
           double.parse(leftThighController.text),
-        double.parse(rightThighController.text),
-        double.parse(leftCalfController.text),
-        double.parse(rightCalfController.text),
-        double.parse(systolicController.text),
-        double.parse(diastolicController.text)
-      );
+          double.parse(rightThighController.text),
+          double.parse(leftCalfController.text),
+          double.parse(rightCalfController.text),
+          double.parse(systolicController.text),
+          double.parse(diastolicController.text));
     }
 
     return Form(

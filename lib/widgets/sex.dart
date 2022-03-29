@@ -16,7 +16,6 @@ class _SexState extends State<Sex> {
   SexOptions? _sex = SexOptions.male;
   bool set = false;
 
-
   void update(User? user, Preferences preferences) {
     preferences.setSex(_sex == SexOptions.male ? 'male' : 'female');
     set = false;
@@ -42,45 +41,45 @@ class _SexState extends State<Sex> {
       child: Padding(
         padding: EdgeInsets.fromLTRB(24, 24, 24, 24),
         child: Column(
-            children: [
-              ListTile(
-                title: const Text('Male'),
-                leading: Radio<SexOptions>(
-                  value: SexOptions.male,
-                  groupValue: _sex,
-                  onChanged: (SexOptions? value) {
-                    setState(() {
-                      _sex = value;
-                      set = true;
-                    });
-                  },
-                ),
-              ),
-              ListTile(
-                title: const Text('Female'),
-                leading: Radio<SexOptions>(
-                  value: SexOptions.female,
-                  groupValue: _sex,
-                  onChanged: (SexOptions? value) {
-                    setState(() {
-                      _sex = value;
-                      set = true;
-                    });
-                  },
-                ),
-              ),
-              SizedBox(height: 16),
-              Button(
-                onPressed: () {
-                  update(user, preferences);
+          children: [
+            ListTile(
+              title: const Text('Male'),
+              leading: Radio<SexOptions>(
+                value: SexOptions.male,
+                groupValue: _sex,
+                onChanged: (SexOptions? value) {
+                  setState(() {
+                    _sex = value;
+                    set = true;
+                  });
                 },
-                child: new Text(
-                  'Update',
-                ),
-                variant: 'secondary',
-              )
-            ],
-          ),
+              ),
+            ),
+            ListTile(
+              title: const Text('Female'),
+              leading: Radio<SexOptions>(
+                value: SexOptions.female,
+                groupValue: _sex,
+                onChanged: (SexOptions? value) {
+                  setState(() {
+                    _sex = value;
+                    set = true;
+                  });
+                },
+              ),
+            ),
+            SizedBox(height: 16),
+            Button(
+              onPressed: () {
+                update(user, preferences);
+              },
+              child: new Text(
+                'Update',
+              ),
+              variant: 'secondary',
+            )
+          ],
+        ),
       ),
     );
   }

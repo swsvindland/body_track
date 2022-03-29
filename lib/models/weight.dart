@@ -2,14 +2,13 @@ class Weight {
   double weight;
   DateTime date;
 
-
-  Weight({ required this.weight, required this.date });
+  Weight({required this.weight, required this.date});
 
   factory Weight.fromMap(Map data) {
     data = data;
     return Weight(
-        weight: data['weight'],
-        date: data['date'].toDate(),
+      weight: data['weight'],
+      date: data['date'].toDate(),
     );
   }
 

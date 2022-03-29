@@ -29,9 +29,7 @@ class _CheckInState extends State<CheckIn> {
       body: Padding(
         padding: EdgeInsets.fromLTRB(25, 25, 25, 25),
         child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: BodyMeasurementForm()
-        ),
+            scrollDirection: Axis.vertical, child: BodyMeasurementForm()),
       ),
     );
   }

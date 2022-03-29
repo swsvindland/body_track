@@ -26,21 +26,16 @@ class Preferences {
   }
 
   static Preferences empty() {
-    return Preferences(
-      start: 7,
-      height: 66,
-      sex: 'male'
-    );
+    return Preferences(start: 7, height: 66, sex: 'male');
   }
 
   factory Preferences.fromMap(Map data) {
     data = data;
 
     return Preferences(
-      start: data['start'].toDate().hour,
-      height: data['height'],
-      sex: data['sex']
-    );
+        start: data['start'].toDate().hour,
+        height: data['height'],
+        sex: data['sex']);
   }
 
   static Map<String, dynamic> toMap(Preferences data) {

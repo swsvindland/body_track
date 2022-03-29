@@ -60,7 +60,8 @@ class _LoginPageState extends State<LoginPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Image.asset('images/google-logo.png', width: 24, height: 24),
+                          Image.asset('images/google-logo.png',
+                              width: 24, height: 24),
                           SizedBox(width: 10),
                           Text('Continue with Google',
                               style: new TextStyle(

@@ -51,8 +51,7 @@ Future<User?> signInWithApple() async {
       rawNonce: rawNonce,
     );
 
-    final authResult =
-    await _auth.signInWithCredential(oauthCredential);
+    final authResult = await _auth.signInWithCredential(oauthCredential);
 
     final firebaseUser = authResult.user;
 

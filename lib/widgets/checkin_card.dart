@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
+import 'dart:math';
 
 import '../models/checkin.dart';
+import '../models/preferences.dart';
+
+double log10(num x) => log(x) / ln10;
 
 class CheckInCard extends StatelessWidget {
   const CheckInCard({Key? key, required this.data}) : super(key: key);
@@ -9,6 +14,16 @@ class CheckInCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final preferences = Provider.of<Preferences>(context);
+
+    final bfMale = 86.010 * log10(data.navel - data.neck) -
+        70.041 * log10(preferences.height) +
+        36.76;
+    final bfFemale =
+        163.205 * log10(data.navel + (data.hip ?? data.navel) - data.neck) -
+            97.684 * log10(preferences.height) -
+            78.387;
+
     return Card(
       elevation: 2,
       shape: RoundedRectangleBorder(
@@ -26,6 +41,11 @@ class CheckInCard extends StatelessWidget {
               style: TextStyle(fontSize: 20),
             ),
             Divider(),
+            preferences.sex == 'male'
+                ? Text('BodyFat: ${bfMale.toStringAsFixed(2)}%')
+                : data.hip != null
+                    ? Text('BodyFat: ${bfFemale.toStringAsFixed(2)}%')
+                    : SizedBox(height: 0),
             Wrap(
               children: [
                 Text('Neck: ${data.neck}\t\t\t'),
@@ -35,12 +55,19 @@ class CheckInCard extends StatelessWidget {
                 Text('Right Bicep: ${data.rightBicep}\t\t\t'),
                 Text('Navel: ${data.navel}\t\t\t'),
                 Text('Waist: ${data.waist}\t\t\t'),
+                data.hip != null
+                    ? Text('Hip: ${data.hip}\t\t\t')
+                    : SizedBox(width: 0),
                 Text('Left Thigh: ${data.leftThigh}\t\t\t'),
                 Text('Right Thigh: ${data.rightThigh}\t\t\t'),
                 Text('Left Calf: ${data.leftCalf}\t\t\t'),
                 Text('Right Calf: ${data.rightCalf}\t\t\t'),
-                data.systolic != null ? Text('Systolic: ${data.systolic}\t\t\t') : SizedBox(width: 0),
-                data.diastolic != null ? Text('Diastolic: ${data.diastolic}\t\t\t') : SizedBox(width: 0),
+                data.systolic != null
+                    ? Text('Systolic: ${data.systolic}\t\t\t')
+                    : SizedBox(width: 0),
+                data.diastolic != null
+                    ? Text('Diastolic: ${data.diastolic}\t\t\t')
+                    : SizedBox(width: 0),
               ],
             ),
           ],

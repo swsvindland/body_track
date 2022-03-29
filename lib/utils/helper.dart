@@ -62,10 +62,10 @@ bool isInt(String? num) {
 }
 
 String? checkInValidator(String? value) {
-    if (value == null || value.isEmpty || !isNumeric(value)) {
-      return 'Please enter a measurement';
-    }
-    return null;
+  if (value == null || value.isEmpty || !isNumeric(value)) {
+    return 'Please enter a measurement';
+  }
+  return null;
 }
 
 String? heightValidator(String? value) {

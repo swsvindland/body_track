@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Button extends StatelessWidget {
-  const Button({Key? key, required this.onPressed, required this.child, this.variant})
+  const Button(
+      {Key? key, required this.onPressed, required this.child, this.variant})
       : super(key: key);
 
   final VoidCallback? onPressed;
@@ -13,8 +14,10 @@ class Button extends StatelessWidget {
     return ElevatedButton(
       style: ButtonStyle(
         fixedSize: MaterialStateProperty.all<Size>(Size(225, 35)),
-        foregroundColor: MaterialStateProperty.all<Color>(variant == 'secondary' ? Colors.white : Colors.black),
-        backgroundColor: MaterialStateProperty.all<Color>(variant == 'secondary' ? Colors.pink : Colors.white),
+        foregroundColor: MaterialStateProperty.all<Color>(
+            variant == 'secondary' ? Colors.white : Colors.black),
+        backgroundColor: MaterialStateProperty.all<Color>(
+            variant == 'secondary' ? Colors.pink : Colors.white),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(25),

@@ -45,11 +45,7 @@ class _SettingsPageState extends State<SettingsPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Sex(),
-                Height(),
-                Notifications()
-              ],
+              children: <Widget>[Sex(), Height(), Notifications()],
             ),
           ),
         ),

@@ -11,17 +11,21 @@ class Weights extends StatelessWidget {
 
     var now = DateTime.now();
 
-    return new TimeSeriesChart(_createSampleData(weights), animate: false, behaviors: [
-      new RangeAnnotation([
-        new RangeAnnotationSegment(new DateTime(now.year, now.month - 1, now.day),
-            now, RangeAnnotationAxisType.domain),
-      ]),
-    ]);
+    return new TimeSeriesChart(_createSampleData(weights),
+        animate: false,
+        behaviors: [
+          new RangeAnnotation([
+            new RangeAnnotationSegment(
+                new DateTime(now.year, now.month - 1, now.day),
+                now,
+                RangeAnnotationAxisType.domain),
+          ]),
+        ]);
   }
 
   /// Create one series with sample hard coded data.
-  static List<Series<TimeSeriesWeight, DateTime>> _createSampleData(List<Weight> weights) {
-
+  static List<Series<TimeSeriesWeight, DateTime>> _createSampleData(
+      List<Weight> weights) {
     final data = weights.map((e) => new TimeSeriesWeight(e.date, e.weight));
 
     return [
