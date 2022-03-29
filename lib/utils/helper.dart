@@ -28,6 +28,8 @@ void createDefaultPreferences(FirebaseFirestore db, User user) async {
     snapshot.reference.set({
       'start':
           DateTime.parse('2000-01-01 ${7.toString().padLeft(2, '0')}:00:00'),
+      'height': 66,
+      'sex': 'male'
     });
   }
 }
@@ -51,9 +53,24 @@ bool isNumeric(String? num) {
   return double.tryParse(num) != null;
 }
 
+bool isInt(String? num) {
+  if (num == null) {
+    return false;
+  }
+
+  return int.tryParse(num) != null;
+}
+
 String? checkInValidator(String? value) {
     if (value == null || value.isEmpty || !isNumeric(value)) {
       return 'Please enter a measurement';
     }
     return null;
+}
+
+String? heightValidator(String? value) {
+  if (value == null || value.isEmpty || !isInt(value)) {
+    return 'Please enter a measurement';
+  }
+  return null;
 }

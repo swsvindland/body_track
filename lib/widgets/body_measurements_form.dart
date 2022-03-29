@@ -25,6 +25,7 @@ class _BodyMeasurementFormState extends State<BodyMeasurementForm> {
   final rightBicepController = TextEditingController();
   final navelController = TextEditingController();
   final waistController = TextEditingController();
+  final hipController = TextEditingController();
   final leftThighController = TextEditingController();
   final rightThighController = TextEditingController();
   final leftCalfController = TextEditingController();
@@ -44,6 +45,7 @@ class _BodyMeasurementFormState extends State<BodyMeasurementForm> {
     rightBicepController.dispose();
     navelController.dispose();
     waistController.dispose();
+    hipController.dispose();
     leftThighController.dispose();
     rightThighController.dispose();
     leftCalfController.dispose();
@@ -68,6 +70,7 @@ class _BodyMeasurementFormState extends State<BodyMeasurementForm> {
         double.parse(rightBicepController.text),
         double.parse(navelController.text),
         double.parse(waistController.text),
+        double.parse(hipController.text),
         double.parse(leftThighController.text),
         double.parse(rightThighController.text),
         double.parse(leftCalfController.text),
@@ -87,7 +90,8 @@ class _BodyMeasurementFormState extends State<BodyMeasurementForm> {
         double.parse(rightBicepController.text),
         double.parse(navelController.text),
         double.parse(waistController.text),
-        double.parse(leftThighController.text),
+          double.parse(hipController.text),
+          double.parse(leftThighController.text),
         double.parse(rightThighController.text),
         double.parse(leftCalfController.text),
         double.parse(rightCalfController.text),
@@ -142,6 +146,10 @@ class _BodyMeasurementFormState extends State<BodyMeasurementForm> {
                   Input(
                       label: 'Waist',
                       controller: waistController,
+                      validator: checkInValidator),
+                  Input(
+                      label: 'Hip',
+                      controller: hipController,
                       validator: checkInValidator),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

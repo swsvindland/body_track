@@ -1,3 +1,4 @@
+import 'package:body_track/widgets/height.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -5,6 +6,8 @@ import 'package:body_track/models/models.dart';
 import 'package:body_track/services/database_service.dart';
 import 'package:body_track/utils/constants.dart';
 import 'package:body_track/widgets/notifications.dart';
+
+import '../widgets/sex.dart';
 
 class SettingsPage extends StatefulWidget {
   SettingsPage() : super();
@@ -43,6 +46,8 @@ class _SettingsPageState extends State<SettingsPage> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
+                Sex(),
+                Height(),
                 Notifications()
               ],
             ),

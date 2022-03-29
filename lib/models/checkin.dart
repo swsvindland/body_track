@@ -7,6 +7,7 @@ class CheckIn {
   double rightBicep;
   double navel;
   double waist;
+  double hip;
   double leftThigh;
   double rightThigh;
   double leftCalf;
@@ -23,6 +24,7 @@ class CheckIn {
       required this.rightBicep,
       required this.navel,
       required this.waist,
+        required this.hip,
       required this.leftThigh,
       required this.rightThigh,
       required this.leftCalf,
@@ -41,6 +43,7 @@ class CheckIn {
       rightBicep: data['rightBicep'],
       navel: data['navel'],
       waist: data['waist'],
+      hip: data['hip'],
       leftThigh: data['leftThigh'],
       rightThigh: data['rightThigh'],
       leftCalf: data['leftCalf'],
@@ -61,6 +64,7 @@ class CheckIn {
       'rightBicep': data.rightBicep,
       'navel': data.navel,
       'waist': data.waist,
+      'hip': data.hip,
       'leftThigh': data.leftThigh,
       'rightThigh': data.rightThigh,
       'leftCalf': data.leftCalf,

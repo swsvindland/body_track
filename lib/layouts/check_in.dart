@@ -1,13 +1,7 @@
 import 'package:body_track/widgets/body_measurements_form.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-import '../services/database_service.dart';
 import '../utils/constants.dart';
-import '../utils/helper.dart';
-import '../widgets/button.dart';
-import '../widgets/input.dart';
 
 class CheckIn extends StatefulWidget {
   const CheckIn({Key? key}) : super(key: key);

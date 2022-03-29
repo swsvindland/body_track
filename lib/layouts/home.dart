@@ -117,6 +117,7 @@ class HomePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             FloatingActionButton(
+              heroTag: "WeighIn",
               onPressed: handleWeighIn,
               foregroundColor: Colors.black,
               backgroundColor: Colors.white,
@@ -124,6 +125,7 @@ class HomePage extends StatelessWidget {
             ),
             SizedBox(width: 16),
             FloatingActionButton.extended(
+              heroTag: "CheckIn",
               onPressed: handleCheckIn,
               label: const Text('Check In'),
               icon: const Icon(Icons.straighten),
