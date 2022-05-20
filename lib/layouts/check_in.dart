@@ -25,7 +25,6 @@ class _CheckInState extends State<CheckIn> {
           },
         ),
       ),
-      backgroundColor: Theme.of(context).primaryColor,
       body: Padding(
         padding: EdgeInsets.fromLTRB(25, 25, 25, 25),
         child: SingleChildScrollView(

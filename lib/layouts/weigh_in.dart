@@ -49,7 +49,6 @@ class _WeighInState extends State<WeighIn> {
           },
         ),
       ),
-      backgroundColor: Theme.of(context).primaryColor,
       body: Padding(
         padding: EdgeInsets.fromLTRB(25, 25, 25, 25),
         child: SingleChildScrollView(

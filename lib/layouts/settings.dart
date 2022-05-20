@@ -34,7 +34,6 @@ class _SettingsPageState extends State<SettingsPage> {
           },
         ),
       ),
-      backgroundColor: Theme.of(context).primaryColor,
       body: StreamProvider<Preferences>.value(
         initialData: Preferences.empty(),
         value: db.streamPreferences(user!.uid),
