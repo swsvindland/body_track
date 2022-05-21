@@ -71,7 +71,7 @@ class App extends StatelessWidget {
               backgroundColor: Colors.black,
               foregroundColor: Colors.white),
         ),
-        themeMode: ThemeMode.dark,
+        themeMode: ThemeMode.system,
         navigatorKey: navigatorKey,
         initialRoute: '/',
         routes: {

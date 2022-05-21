@@ -11,16 +11,20 @@ class Weights extends StatelessWidget {
 
     var now = DateTime.now();
 
-    return new TimeSeriesChart(_createSampleData(weights),
-        animate: false,
-        behaviors: [
-          new RangeAnnotation([
+    return new TimeSeriesChart(
+      _createSampleData(weights),
+      animate: false,
+      behaviors: [
+        new RangeAnnotation(
+          [
             new RangeAnnotationSegment(
                 new DateTime(now.year, now.month - 1, now.day),
                 now,
                 RangeAnnotationAxisType.domain),
-          ]),
-        ]);
+          ],
+        ),
+      ],
+    );
   }
 
   /// Create one series with sample hard coded data.
@@ -33,6 +37,7 @@ class Weights extends StatelessWidget {
         id: UniqueKey().toString(),
         domainFn: (TimeSeriesWeight sales, _) => sales.time,
         measureFn: (TimeSeriesWeight sales, _) => sales.weight,
+        colorFn: (_, __) => ColorUtil.fromDartColor(Colors.pink),
         data: data.toList(),
       )
     ];

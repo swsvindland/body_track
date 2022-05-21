@@ -115,8 +115,6 @@ class HomePage extends StatelessWidget {
           FloatingActionButton(
             heroTag: "WeighIn",
             onPressed: handleWeighIn,
-            foregroundColor: Colors.black,
-            backgroundColor: Colors.white,
             child: const Icon(Icons.monitor_weight),
           ),
           SizedBox(width: 16),
@@ -125,8 +123,6 @@ class HomePage extends StatelessWidget {
             onPressed: handleCheckIn,
             label: const Text('Check In'),
             icon: const Icon(Icons.straighten),
-            foregroundColor: Colors.black,
-            backgroundColor: Colors.white,
           ),
         ],
       ),
