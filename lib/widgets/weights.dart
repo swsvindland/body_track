@@ -11,6 +11,20 @@ class Weights extends StatelessWidget {
   Widget build(BuildContext context) {
     var weights = Provider.of<Iterable<Weight>>(context).toList();
 
+    if (weights.isEmpty) {
+      return const SizedBox(
+        height: 300,
+        width: 600,
+        child: Padding(
+          padding: EdgeInsets.all(12),
+          child: Center(
+            child: Text(
+                'Looks like you have no weigh ins. Click the scale icon to get started.'),
+          ),
+        ),
+      );
+    }
+
     return TimeSeriesChart(
       _createSampleData(weights, context),
       animate: true,
