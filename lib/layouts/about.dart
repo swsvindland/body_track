@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:body_track/utils/constants.dart';
 
 class AboutPage extends StatelessWidget {
+  const AboutPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title: Text('About'),
-        leading: new IconButton(
-          icon: new Icon(Icons.arrow_back),
+        title: const Text('About'),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
           color: Colors.white,
           onPressed: () {
             navigatorKey.currentState!.pop();
@@ -18,11 +20,11 @@ class AboutPage extends StatelessWidget {
       ),
       body: Center(
         child: Padding(
-          padding: EdgeInsets.all(25),
+          padding: const EdgeInsets.all(24),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
+            children: const <Widget>[
               Text(
                 'Designed and Built by',
                 style: TextStyle(color: Colors.white, fontSize: 16),

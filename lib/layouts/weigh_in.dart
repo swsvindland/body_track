@@ -40,9 +40,9 @@ class _WeighInState extends State<WeighIn> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title: Text("Weigh In"),
-        leading: new IconButton(
-          icon: new Icon(Icons.arrow_back),
+        title: const Text("Weigh In"),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
           color: Colors.white,
           onPressed: () {
             navigatorKey.currentState!.pop();
@@ -50,7 +50,7 @@ class _WeighInState extends State<WeighIn> {
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.fromLTRB(25, 25, 25, 25),
+        padding: const EdgeInsets.all(24),
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Form(

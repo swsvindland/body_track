@@ -9,9 +9,10 @@ import '../utils/helper.dart';
 import 'input.dart';
 
 class Height extends StatefulWidget {
-  Height() : super();
+  const Height({Key? key}) : super(key: key);
 
-  _HeightState createState() => _HeightState();
+  @override
+  State<Height> createState() => _HeightState();
 }
 
 class _HeightState extends State<Height> {
@@ -56,13 +57,13 @@ class _HeightState extends State<Height> {
         borderRadius: BorderRadius.circular(25),
       ),
       child: Padding(
-        padding: EdgeInsets.fromLTRB(24, 24, 24, 24),
+        padding: const EdgeInsets.all(24),
         child: Form(
           key: _formKey,
           child: Column(
             children: [
-              Text('Height'),
-              SizedBox(height: 16),
+              const Text('Height'),
+              const SizedBox(height: 16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -86,15 +87,15 @@ class _HeightState extends State<Height> {
                   ),
                 ],
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Button(
                 onPressed: () {
                   update(user, preferences);
                 },
-                child: new Text(
+                variant: 'secondary',
+                child: const Text(
                   'Update',
                 ),
-                variant: 'secondary',
               )
             ],
           ),

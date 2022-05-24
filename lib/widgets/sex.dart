@@ -6,9 +6,10 @@ import 'package:body_track/models/models.dart';
 import 'package:body_track/services/database_service.dart';
 
 class Sex extends StatefulWidget {
-  Sex() : super();
+  const Sex({Key? key}) : super(key: key);
 
-  _SexState createState() => _SexState();
+  @override
+  State<Sex> createState() => _SexState();
 }
 
 class _SexState extends State<Sex> {
@@ -39,7 +40,7 @@ class _SexState extends State<Sex> {
         borderRadius: BorderRadius.circular(25),
       ),
       child: Padding(
-        padding: EdgeInsets.fromLTRB(24, 24, 24, 24),
+        padding: const EdgeInsets.all(24),
         child: Column(
           children: [
             ListTile(
@@ -68,15 +69,15 @@ class _SexState extends State<Sex> {
                 },
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Button(
               onPressed: () {
                 update(user, preferences);
               },
-              child: new Text(
+              variant: 'secondary',
+              child: const Text(
                 'Update',
               ),
-              variant: 'secondary',
             )
           ],
         ),

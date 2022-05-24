@@ -18,7 +18,7 @@ class DatabaseService {
     return _db
         .collection('weight')
         .doc()
-        .set({"uid": id, "date": new DateTime.now(), "weight": weight});
+        .set({"uid": id, "date": DateTime.now(), "weight": weight});
   }
 
   Future<void> addCheckIn(
@@ -39,7 +39,7 @@ class DatabaseService {
       double? diastolic]) {
     return _db.collection('checkIns').doc().set({
       "uid": id,
-      "date": new DateTime.now(),
+      "date": DateTime.now(),
       "neck": neck,
       "shoulders": shoulders,
       "chest": chest,

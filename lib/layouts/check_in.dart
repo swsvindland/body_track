@@ -16,17 +16,17 @@ class _CheckInState extends State<CheckIn> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title: Text("Check In"),
-        leading: new IconButton(
-          icon: new Icon(Icons.arrow_back),
+        title: const Text("Check In"),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
           color: Colors.white,
           onPressed: () {
             navigatorKey.currentState!.pop();
           },
         ),
       ),
-      body: Padding(
-        padding: EdgeInsets.fromLTRB(25, 25, 25, 25),
+      body: const Padding(
+        padding: EdgeInsets.all(24),
         child: SingleChildScrollView(
             scrollDirection: Axis.vertical, child: BodyMeasurementForm()),
       ),

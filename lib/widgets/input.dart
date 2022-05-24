@@ -20,7 +20,7 @@ class Input extends StatelessWidget {
     var color = variant == null ? Colors.white : Colors.pink;
 
     return Padding(
-      padding: EdgeInsets.all(4),
+      padding: const EdgeInsets.all(4),
       child: TextFormField(
         controller: controller,
         // The validator receives the text that the user has entered.
@@ -35,11 +35,11 @@ class Input extends StatelessWidget {
               // width: 0.0 produces a thin "hairline" border
               borderSide: BorderSide(color: color),
             ),
-            border: OutlineInputBorder(),
+            border: const OutlineInputBorder(),
             labelText: label,
-            labelStyle: new TextStyle(color: color)),
+            labelStyle: TextStyle(color: color)),
         keyboardType: TextInputType.numberWithOptions(
-            decimal: decimal == null ? true : decimal),
+            decimal: decimal ?? true),
       ),
     );
   }

@@ -11,8 +11,6 @@ class Weights extends StatelessWidget {
   Widget build(BuildContext context) {
     var weights = Provider.of<Iterable<Weight>>(context).toList();
 
-    var now = DateTime.now();
-
     return TimeSeriesChart(
       _createSampleData(weights, context),
       animate: true,

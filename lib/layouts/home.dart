@@ -10,6 +10,8 @@ import 'package:body_track/widgets/weights.dart';
 import '../widgets/checkin_list.dart';
 
 class HomePage extends StatelessWidget {
+  HomePage({Key? key}) : super(key: key);
+
   final db = DatabaseService();
 
   handleWeighIn() {
@@ -26,7 +28,7 @@ class HomePage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('BodyTrack'),
+        title: const Text('BodyTrack'),
         elevation: 0,
         actions: <Widget>[
           PopupMenuButton<Popup>(
@@ -43,7 +45,7 @@ class HomePage extends StatelessWidget {
                     .pushNamedAndRemoveUntil('/login', (route) => false);
               }
             },
-            icon: Icon(Icons.more_vert),
+            icon: const Icon(Icons.more_vert),
             itemBuilder: (BuildContext context) => <PopupMenuEntry<Popup>>[
               const PopupMenuItem<Popup>(
                 value: Popup.settings,
@@ -71,7 +73,7 @@ class HomePage extends StatelessWidget {
         ],
       ),
       body: StreamProvider<Iterable<Weight>>.value(
-        initialData: [],
+        initialData: const [],
         value: db.streamWeighIns(user!.uid),
         child: StreamProvider<Preferences>.value(
           initialData: Preferences.empty(),
@@ -83,13 +85,13 @@ class HomePage extends StatelessWidget {
               Expanded(
                 flex: 3,
                 child: Padding(
-                  padding: EdgeInsets.all(8),
+                  padding: const EdgeInsets.all(8),
                   child: Card(
                     elevation: 5,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25),
                     ),
-                    child: Padding(
+                    child: const Padding(
                       padding: EdgeInsets.all(4),
                       child: Weights(),
                     ),
@@ -99,9 +101,9 @@ class HomePage extends StatelessWidget {
               Expanded(
                 flex: 5,
                 child: StreamProvider<Iterable<CheckIn>>.value(
-                  initialData: [],
+                  initialData: const [],
                   value: db.streamCheckIns(user.uid),
-                  child: CheckInList(),
+                  child: const CheckInList(),
                 ),
               ),
             ],
@@ -117,7 +119,7 @@ class HomePage extends StatelessWidget {
             onPressed: handleWeighIn,
             child: const Icon(Icons.monitor_weight),
           ),
-          SizedBox(width: 16),
+          const SizedBox(width: 16),
           FloatingActionButton.extended(
             heroTag: "CheckIn",
             onPressed: handleCheckIn,

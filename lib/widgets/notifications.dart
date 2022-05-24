@@ -6,9 +6,10 @@ import 'package:body_track/models/models.dart';
 import 'package:body_track/services/database_service.dart';
 
 class Notifications extends StatefulWidget {
-  Notifications() : super();
+  const Notifications({Key? key}) : super(key: key);
 
-  _NotificationsState createState() => _NotificationsState();
+  @override
+  State<Notifications> createState() => _NotificationsState();
 }
 
 class _NotificationsState extends State<Notifications> {
@@ -41,11 +42,11 @@ class _NotificationsState extends State<Notifications> {
         borderRadius: BorderRadius.circular(25),
       ),
       child: Padding(
-        padding: EdgeInsets.fromLTRB(24, 24, 24, 24),
+        padding: const EdgeInsets.all(24),
         child: Column(
           children: [
-            Text('Reminder Notification'),
-            SizedBox(height: 16),
+            const Text('Reminder Notification'),
+            const SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -56,12 +57,12 @@ class _NotificationsState extends State<Notifications> {
                       onPressed: () async {
                         TimeOfDay? picked = await showTimePicker(
                           context: context,
-                          initialTime: TimeOfDay(hour: 12, minute: 00),
+                          initialTime: const TimeOfDay(hour: 12, minute: 00),
                           builder: (BuildContext context, Widget? child) {
                             return MediaQuery(
                               data: MediaQuery.of(context)
                                   .copyWith(alwaysUse24HourFormat: true),
-                              child: child ?? new Text('error'),
+                              child: child ?? const Text('error'),
                             );
                           },
                         );
@@ -77,15 +78,15 @@ class _NotificationsState extends State<Notifications> {
                 ),
               ],
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Button(
               onPressed: () {
                 update(user, preferences);
               },
-              child: new Text(
+              variant: 'secondary',
+              child: const Text(
                 'Update',
               ),
-              variant: 'secondary',
             )
           ],
         ),

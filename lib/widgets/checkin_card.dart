@@ -30,22 +30,22 @@ class CheckInCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(25),
       ),
       child: Padding(
-        padding: EdgeInsets.fromLTRB(24, 24, 24, 24),
+        padding: const EdgeInsets.all(24),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              '${DateFormat.MMMMd().format(data.date)}',
+              DateFormat.MMMMd(Localizations.localeOf(context).languageCode).format(data.date),
               textAlign: TextAlign.left,
-              style: TextStyle(fontSize: 20),
+              style: const TextStyle(fontSize: 20),
             ),
-            Divider(),
+            const Divider(),
             preferences.sex == 'male'
                 ? Text('BodyFat: ${bfMale.toStringAsFixed(2)}%')
                 : data.hip != null
                     ? Text('BodyFat: ${bfFemale.toStringAsFixed(2)}%')
-                    : SizedBox(height: 0),
+                    : const SizedBox(height: 0),
             Wrap(
               children: [
                 Text('Neck: ${data.neck}\t\t\t'),
@@ -57,17 +57,17 @@ class CheckInCard extends StatelessWidget {
                 Text('Waist: ${data.waist}\t\t\t'),
                 data.hip != null
                     ? Text('Hip: ${data.hip}\t\t\t')
-                    : SizedBox(width: 0),
+                    : const SizedBox(width: 0),
                 Text('Left Thigh: ${data.leftThigh}\t\t\t'),
                 Text('Right Thigh: ${data.rightThigh}\t\t\t'),
                 Text('Left Calf: ${data.leftCalf}\t\t\t'),
                 Text('Right Calf: ${data.rightCalf}\t\t\t'),
                 data.systolic != null
                     ? Text('Systolic: ${data.systolic}\t\t\t')
-                    : SizedBox(width: 0),
+                    : const SizedBox(width: 0),
                 data.diastolic != null
                     ? Text('Diastolic: ${data.diastolic}\t\t\t')
-                    : SizedBox(width: 0),
+                    : const SizedBox(width: 0),
               ],
             ),
           ],

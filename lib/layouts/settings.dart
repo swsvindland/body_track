@@ -10,9 +10,10 @@ import 'package:body_track/widgets/notifications.dart';
 import '../widgets/sex.dart';
 
 class SettingsPage extends StatefulWidget {
-  SettingsPage() : super();
+  const SettingsPage({Key? key}) : super(key: key);
 
-  _SettingsPageState createState() => _SettingsPageState();
+  @override
+  State<SettingsPage> createState() => _SettingsPageState();
 }
 
 class _SettingsPageState extends State<SettingsPage> {
@@ -24,10 +25,10 @@ class _SettingsPageState extends State<SettingsPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Settings'),
+        title: const Text('Settings'),
         elevation: 0,
-        leading: new IconButton(
-          icon: new Icon(Icons.arrow_back),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
           color: Colors.white,
           onPressed: () {
             navigatorKey.currentState!.pop();
@@ -38,13 +39,13 @@ class _SettingsPageState extends State<SettingsPage> {
         initialData: Preferences.empty(),
         value: db.streamPreferences(user!.uid),
         child: Padding(
-          padding: EdgeInsets.fromLTRB(25, 25, 25, 25),
+          padding: const EdgeInsets.all(24),
           child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[Sex(), Height(), Notifications()],
+              children: const <Widget>[Sex(), Height(), Notifications()],
             ),
           ),
         ),

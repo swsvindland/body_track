@@ -15,10 +15,12 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(App());
+  runApp(const App());
 }
 
 class App extends StatelessWidget {
+  const App({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -31,13 +33,13 @@ class App extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'BodyTrack',
-        localizationsDelegates: [
+        localizationsDelegates: const [
           AppLocalizations.delegate, // Add this line
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
         ],
-        supportedLocales: [
+        supportedLocales: const [
           Locale('en', ''), // English
           Locale('es', ''), // Spanish
           Locale('pt', ''), // Portuguese
@@ -57,7 +59,7 @@ class App extends StatelessWidget {
           useMaterial3: true,
           backgroundColor: Colors.pink,
           scaffoldBackgroundColor: Colors.pink,
-            appBarTheme: AppBarTheme(
+            appBarTheme: const AppBarTheme(
                 backgroundColor: Colors.pink,
                 foregroundColor: Colors.white),
         ),
@@ -67,7 +69,7 @@ class App extends StatelessWidget {
             useMaterial3: true,
             backgroundColor: Colors.black,
             scaffoldBackgroundColor: Colors.black,
-          appBarTheme: AppBarTheme(
+          appBarTheme: const AppBarTheme(
               backgroundColor: Colors.black,
               foregroundColor: Colors.white),
         ),
@@ -75,13 +77,13 @@ class App extends StatelessWidget {
         navigatorKey: navigatorKey,
         initialRoute: '/',
         routes: {
-          '/': (context) => SplashScreenPage(),
-          '/login': (context) => LoginPage(),
+          '/': (context) => const SplashScreenPage(),
+          '/login': (context) => const LoginPage(),
           '/home': (context) => HomePage(),
-          '/weigh-in': (context) => WeighIn(),
-          '/check-in': (context) => CheckIn(),
-          '/about': (context) => AboutPage(),
-          '/settings': (context) => SettingsPage()
+          '/weigh-in': (context) => const WeighIn(),
+          '/check-in': (context) => const CheckIn(),
+          '/about': (context) => const AboutPage(),
+          '/settings': (context) => const SettingsPage()
         },
       ),
     );

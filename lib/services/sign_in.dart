@@ -57,7 +57,6 @@ Future<User?> signInWithApple() async {
 
     return firebaseUser;
   } catch (error) {
-    print(error);
     return null;
   }
 }
