@@ -5,41 +5,52 @@ import 'package:provider/provider.dart';
 import '../models/weight.dart';
 
 class Weights extends StatelessWidget {
+  const Weights({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     var weights = Provider.of<Iterable<Weight>>(context).toList();
 
     var now = DateTime.now();
 
-    return new TimeSeriesChart(
-      _createSampleData(weights),
-      animate: false,
-      behaviors: [
-        new RangeAnnotation(
-          [
-            new RangeAnnotationSegment(
-                new DateTime(now.year, now.month - 1, now.day),
-                now,
-                RangeAnnotationAxisType.domain),
-          ],
-        ),
-      ],
+    return TimeSeriesChart(
+      _createSampleData(weights, context),
+      animate: true,
+      primaryMeasureAxis: const NumericAxisSpec(
+        tickProviderSpec: BasicNumericTickProviderSpec(zeroBound: false),
+      ),
     );
   }
 
-  /// Create one series with sample hard coded data.
   static List<Series<TimeSeriesWeight, DateTime>> _createSampleData(
-      List<Weight> weights) {
-    final data = weights.map((e) => new TimeSeriesWeight(e.date, e.weight));
+      List<Weight> weights, BuildContext context) {
+    final data =
+        weights.map((e) => TimeSeriesWeight(e.date, e.weight)).toList();
+
+    data.sort((a, b) {
+      return a.time.compareTo(b.time);
+    });
+
+    final regression = [
+      TimeSeriesWeight(data.first.time, data.first.weight),
+      TimeSeriesWeight(data.last.time, data.last.weight)
+    ];
 
     return [
-      new Series<TimeSeriesWeight, DateTime>(
-        id: UniqueKey().toString(),
+      Series<TimeSeriesWeight, DateTime>(
+        id: 'WeighIns',
+        colorFn: (_, __) => MaterialPalette.pink.makeShades(10)[7],
         domainFn: (TimeSeriesWeight sales, _) => sales.time,
         measureFn: (TimeSeriesWeight sales, _) => sales.weight,
-        colorFn: (_, __) => ColorUtil.fromDartColor(Colors.pink),
-        data: data.toList(),
-      )
+        data: data,
+      ),
+      Series<TimeSeriesWeight, DateTime>(
+        id: 'Average',
+        colorFn: (_, __) => MaterialPalette.pink.shadeDefault,
+        domainFn: (TimeSeriesWeight sales, _) => sales.time,
+        measureFn: (TimeSeriesWeight sales, _) => sales.weight,
+        data: regression,
+      ),
     ];
   }
 }
