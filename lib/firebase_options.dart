@@ -60,7 +60,7 @@ class DefaultFirebaseOptions {
     storageBucket: 'bodytrack-4805f.appspot.com',
     androidClientId: '718751552748-h7vvl5ste38kvge940p3rvduhl23orld.apps.googleusercontent.com',
     iosClientId: '718751552748-p16te2gb0phh8fl7jee7n2vdqj9b281o.apps.googleusercontent.com',
-    iosBundleId: 'com.svindland.watertrack',
+    iosBundleId: 'com.svindland.bodytrack',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
@@ -71,6 +71,6 @@ class DefaultFirebaseOptions {
     storageBucket: 'bodytrack-4805f.appspot.com',
     androidClientId: '718751552748-h7vvl5ste38kvge940p3rvduhl23orld.apps.googleusercontent.com',
     iosClientId: '718751552748-p16te2gb0phh8fl7jee7n2vdqj9b281o.apps.googleusercontent.com',
-    iosBundleId: 'com.svindland.watertrack',
+    iosBundleId: 'com.svindland.bodytrack',
   );
 }

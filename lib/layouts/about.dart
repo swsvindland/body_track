@@ -39,7 +39,7 @@ class AboutPage extends StatelessWidget {
                 style: TextStyle(color: Colors.white, fontSize: 16),
               ),
               Text(
-                '1.2.1',
+                '1.3.0',
                 style: TextStyle(color: Colors.white, fontSize: 12),
               ),
             ],
