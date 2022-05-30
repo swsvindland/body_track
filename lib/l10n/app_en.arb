@@ -33,5 +33,9 @@
     "systolic": "Systolic",
     "diastolic": "Diastolic",
     "goBack": "Go Back",
-    "formInputError": "Please enter a measurement"
+    "formInputError": "Please enter a measurement",
+    "deleteAccount": "Delete Account",
+    "deleteAccountConfirm": "This will delete your account and all user data forever. Are you sure?",
+    "delete": "Delete",
+    "cancel": "Cancel"
 }

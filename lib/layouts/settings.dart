@@ -1,3 +1,4 @@
+import 'package:body_track/widgets/delete_account.dart';
 import 'package:body_track/widgets/height.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -45,7 +46,7 @@ class _SettingsPageState extends State<SettingsPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: const <Widget>[Sex(), Height(), Notifications()],
+              children: const <Widget>[Sex(), Height(), Notifications(), DeleteAccount()],
             ),
           ),
         ),

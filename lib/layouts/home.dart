@@ -1,3 +1,4 @@
+import 'package:body_track/widgets/app_bar_ad.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:body_track/models/models.dart';
@@ -28,7 +29,7 @@ class HomePage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('BodyTrack'),
+        title: const AppBarAd(),
         elevation: 0,
         actions: <Widget>[
           PopupMenuButton<Popup>(
