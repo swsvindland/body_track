@@ -34,9 +34,7 @@ class DatabaseService {
       double leftThigh,
       double rightThigh,
       double leftCalf,
-      double rightCalf,
-      [double? systolic,
-      double? diastolic]) {
+      double rightCalf) {
     return _db.collection('checkIns').doc().set({
       "uid": id,
       "date": DateTime.now(),
@@ -51,9 +49,7 @@ class DatabaseService {
       "leftThigh": leftThigh,
       "rightThigh": rightThigh,
       "leftCalf": leftCalf,
-      "rightCalf": rightCalf,
-      "systolic": systolic,
-      "diastolic": diastolic
+      "rightCalf": rightCalf
     });
   }
 
