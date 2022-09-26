@@ -1,4 +1,3 @@
-import 'package:body_track/widgets/button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -35,10 +34,6 @@ class _SexState extends State<Sex> {
     });
 
     return Card(
-      elevation: 2,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(25),
-      ),
       child: Padding(
         padding: const EdgeInsets.all(24),
         child: Column(
@@ -70,11 +65,10 @@ class _SexState extends State<Sex> {
               ),
             ),
             const SizedBox(height: 16),
-            Button(
+            ElevatedButton(
               onPressed: () {
                 update(user, preferences);
               },
-              variant: 'secondary',
               child: const Text(
                 'Update',
               ),

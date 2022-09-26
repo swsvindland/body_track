@@ -41,7 +41,7 @@ class AboutPage extends StatelessWidget {
                 style: TextStyle(color: Colors.white, fontSize: 16),
               ),
               Text(
-                '1.6.8',
+                '1.7.0',
                 style: TextStyle(color: Colors.white, fontSize: 12),
               ),
             ],

@@ -1,8 +1,10 @@
+import 'package:body_track/utils/colors.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:body_track/layouts/layouts.dart';
 import 'package:body_track/services/graph_animation_provider.dart';
@@ -58,24 +60,73 @@ class App extends StatelessWidget {
         ],
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          colorSchemeSeed: Colors.pink,
+          colorSchemeSeed: primary,
           brightness: Brightness.light,
+          textTheme: GoogleFonts.oswaldTextTheme(),
           useMaterial3: true,
-          backgroundColor: Colors.pink,
-          scaffoldBackgroundColor: Colors.pink,
-            appBarTheme: const AppBarTheme(
-                backgroundColor: Colors.pink,
-                foregroundColor: Colors.white),
+          backgroundColor: background,
+          scaffoldBackgroundColor: background,
+          appBarTheme: const AppBarTheme(
+              backgroundColor: background, foregroundColor: textPrimary),
+          elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ButtonStyle(
+              fixedSize: MaterialStateProperty.all<Size>(const Size(300, 55)),
+              backgroundColor: MaterialStateProperty.all<Color>(primary),
+              foregroundColor: MaterialStateProperty.all<Color>(textPrimary),
+            ),
+          ),
+          textButtonTheme: TextButtonThemeData(
+            style: ButtonStyle(
+              foregroundColor: MaterialStateProperty.all<Color>(textPrimary),
+            ),
+          ),
+          cardTheme: const CardTheme(
+            color: card
+          ),
+          listTileTheme: const ListTileThemeData(
+            textColor: textSecondary
+          ),
+          dialogTheme: const DialogTheme(
+            backgroundColor: card,
+            titleTextStyle: TextStyle(color: textPrimary),
+            contentTextStyle: TextStyle(color: textSecondary)
+          ),
+          popupMenuTheme: const PopupMenuThemeData(
+            color: card,
+            textStyle: TextStyle(color: textSecondary),
+          ),
+          timePickerTheme: const TimePickerThemeData(
+            backgroundColor: card,
+            hourMinuteTextColor: textPrimary,
+            dialTextColor: textSecondary,
+            helpTextStyle: TextStyle(color: textSecondary),
+            entryModeIconColor: textSecondary
+          )
         ),
         darkTheme: ThemeData(
-            colorSchemeSeed: Colors.pink,
-            brightness: Brightness.dark,
-            useMaterial3: true,
-            backgroundColor: Colors.black,
-            scaffoldBackgroundColor: Colors.black,
+          colorSchemeSeed: primary,
+          brightness: Brightness.dark,
+          useMaterial3: true,
+          backgroundColor: Colors.black,
+          scaffoldBackgroundColor: Colors.black,
           appBarTheme: const AppBarTheme(
-              backgroundColor: Colors.black,
-              foregroundColor: Colors.white),
+              backgroundColor: Colors.black, foregroundColor: textPrimary),
+            elevatedButtonTheme: ElevatedButtonThemeData(
+              style: ButtonStyle(
+                fixedSize: MaterialStateProperty.all<Size>(const Size(300, 55)),
+                backgroundColor: MaterialStateProperty.all<Color>(primary),
+                foregroundColor: MaterialStateProperty.all<Color>(textPrimary),
+              ),
+            ),
+            listTileTheme: const ListTileThemeData(
+                textColor: textSecondary
+            ),
+            timePickerTheme: const TimePickerThemeData(
+                hourMinuteTextColor: textPrimary,
+                dialTextColor: textSecondary,
+                helpTextStyle: TextStyle(color: textSecondary),
+                entryModeIconColor: textSecondary
+            )
         ),
         themeMode: ThemeMode.system,
         navigatorKey: navigatorKey,

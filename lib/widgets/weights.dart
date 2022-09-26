@@ -1,4 +1,5 @@
-import 'package:charts_flutter/flutter.dart';
+import 'package:body_track/utils/colors.dart';
+import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -19,22 +20,24 @@ class Weights extends StatelessWidget {
           padding: EdgeInsets.all(12),
           child: Center(
             child: Text(
-                'Looks like you have no weigh ins. Click the scale icon to get started.'),
+              'Looks like you have no weigh ins. Click the scale icon to get started.',
+              style: TextStyle(color: textSecondary),
+            ),
           ),
         ),
       );
     }
 
-    return TimeSeriesChart(
+    return charts.TimeSeriesChart(
       _createSampleData(weights, context),
       animate: true,
-      primaryMeasureAxis: const NumericAxisSpec(
-        tickProviderSpec: BasicNumericTickProviderSpec(zeroBound: false),
+      primaryMeasureAxis: const charts.NumericAxisSpec(
+        tickProviderSpec: charts.BasicNumericTickProviderSpec(zeroBound: false),
       ),
     );
   }
 
-  static List<Series<TimeSeriesWeight, DateTime>> _createSampleData(
+  static List<charts.Series<TimeSeriesWeight, DateTime>> _createSampleData(
       List<Weight> weights, BuildContext context) {
     final data =
         weights.map((e) => TimeSeriesWeight(e.date, e.weight)).toList();
@@ -49,16 +52,16 @@ class Weights extends StatelessWidget {
     ];
 
     return [
-      Series<TimeSeriesWeight, DateTime>(
+      charts.Series<TimeSeriesWeight, DateTime>(
         id: 'WeighIns',
-        colorFn: (_, __) => MaterialPalette.pink.makeShades(10)[7],
+        colorFn: (_, __) => charts.ColorUtil.fromDartColor(secondary),
         domainFn: (TimeSeriesWeight sales, _) => sales.time,
         measureFn: (TimeSeriesWeight sales, _) => sales.weight,
         data: data,
       ),
-      Series<TimeSeriesWeight, DateTime>(
+      charts.Series<TimeSeriesWeight, DateTime>(
         id: 'Average',
-        colorFn: (_, __) => MaterialPalette.pink.shadeDefault,
+        colorFn: (_, __) => charts.ColorUtil.fromDartColor(ternary),
         domainFn: (TimeSeriesWeight sales, _) => sales.time,
         measureFn: (TimeSeriesWeight sales, _) => sales.weight,
         data: regression,

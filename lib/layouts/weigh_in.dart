@@ -1,4 +1,3 @@
-import 'package:body_track/widgets/button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -65,7 +64,7 @@ class _WeighInState extends State<WeighIn> {
                     validator: checkInValidator),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 16.0),
-                  child: Button(
+                  child: ElevatedButton(
                     onPressed: () async {
                       // Validate returns true if the form is valid, or false otherwise.
                       if (_formKey.currentState!.validate()) {

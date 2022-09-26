@@ -5,7 +5,6 @@ import 'package:provider/provider.dart';
 import '../services/database_service.dart';
 import '../utils/constants.dart';
 import '../utils/helper.dart';
-import 'button.dart';
 import 'input.dart';
 
 class BodyMeasurementForm extends StatefulWidget {
@@ -168,7 +167,7 @@ class _BodyMeasurementFormState extends State<BodyMeasurementForm> {
           ),
           Padding(
             padding: const EdgeInsets.all(4),
-            child: Button(
+            child: ElevatedButton(
               onPressed: () async {
                 // Validate returns true if the form is valid, or false otherwise.
                 if (_formKey.currentState!.validate()) {

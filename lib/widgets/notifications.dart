@@ -1,4 +1,3 @@
-import 'package:body_track/widgets/button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -15,7 +14,6 @@ class Notifications extends StatefulWidget {
 class _NotificationsState extends State<Notifications> {
   final db = DatabaseService();
   late int start;
-  late int end;
   bool set = false;
 
   void update(User? user, Preferences preferences) {
@@ -37,10 +35,6 @@ class _NotificationsState extends State<Notifications> {
     });
 
     return Card(
-      elevation: 2,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(25),
-      ),
       child: Padding(
         padding: const EdgeInsets.all(24),
         child: Column(
@@ -79,11 +73,10 @@ class _NotificationsState extends State<Notifications> {
               ],
             ),
             const SizedBox(height: 16),
-            Button(
+            ElevatedButton(
               onPressed: () {
                 update(user, preferences);
               },
-              variant: 'secondary',
               child: const Text(
                 'Update',
               ),
