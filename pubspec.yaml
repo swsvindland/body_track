@@ -15,7 +15,7 @@ version: 1.8.1+22
 
 environment:
   sdk: ">=2.18.4 <3.0.0"
-  flutter: "3.3.7"
+  flutter: "3.3.8"
 
 dependencies:
   charts_flutter: ^0.12.0
