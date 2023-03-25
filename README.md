@@ -1,6 +1,11 @@
-# body_track
+# Body Track
 
-A new Flutter project.
+A flutter app to tracking body measurements.
+
+## App Stores
+
+- [Google Play](https://play.google.com/store/apps/details?id=com.svindland.bodytrack)
+- [Apple App Store](https://apps.apple.com/us/app/bodytrack-fitness-log/id1613621605)
 
 ## Getting Started
 
@@ -14,4 +19,8 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
-# body_track
+
+## l10n
+```
+flutter packages pub run arb_translator:translate --source_arb lib/l10n/app_en.arb --api_key google_translate_key.txt --language_codes es,pt,fr,de,it,zh,ko,ja,ar,hi  --output_file_name app_
+```
