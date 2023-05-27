@@ -39,14 +39,14 @@ class _SettingsPageState extends State<SettingsPage> {
       body: StreamProvider<Preferences>.value(
         initialData: Preferences.empty(),
         value: db.streamPreferences(user!.uid),
-        child: Padding(
-          padding: const EdgeInsets.all(24),
+        child: const Padding(
+          padding: EdgeInsets.all(24),
           child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: const <Widget>[Sex(), Height(), Notifications(), DeleteAccount()],
+              children: <Widget>[Sex(), Height(), Notifications(), DeleteAccount()],
             ),
           ),
         ),
